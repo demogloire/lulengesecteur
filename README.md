@@ -1,2 +1,1 @@
-# lulengesecteur
-Site web de secteur de lulenge
+# Secteur de lulenge
