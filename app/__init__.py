@@ -12,6 +12,7 @@ from config import app_config
 
 db = SQLAlchemy()
 login_manager = LoginManager()
+bcrypt = Bcrypt()
 
 #Structure de l'application
 
@@ -22,9 +23,12 @@ def create_app(config_name):
 
     #Bootstrap(app)
     db.init_app(app)
+    bcrypt.init_app(app)
     login_manager.init_app(app)
-    #login_manager.login_message = "You must be logged in to access this page."
-    #login_manager.login_view = "auth.login"
+
+    login_manager.login_message = "Veuillez vous connecté"
+    login_manager.login_view = "authentification.login"
+    login_manager.login_message_category ='danger'
     migrate = Migrate(app, db)
 
     from app import models
@@ -33,14 +37,18 @@ def create_app(config_name):
     Utilisation des stucture Blueprint
     '''
 
-    #from .admin import admin as admin_blueprint
-    #app.register_blueprint(admin_blueprint, url_prefix='/admin')
 
-    #from .auth import auth as auth_blueprint
-    #app.register_blueprint(auth_blueprint)
-
+    #Autres pages
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+
+    #Authetification de l'utilisateur sur la plateforme
+    from .authentification import authentification as authentification_blueprint
+    app.register_blueprint(authentification_blueprint)
+
+    #Les pages du dashbord de l'l'adminnistrateur
+    from .users import users as users_blueprint
+    app.register_blueprint(users_blueprint)
 
     return app
 

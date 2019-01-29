@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="row">
+        <div class="col-lg-4 col-md-5">
+            <div class="card card-user">
+                <div class="image ">
+                    <img src="{{ url_for('static', filename='other/d.jpg')}}">                   
+                </div>
+                <div class="content">
+                    <div class="author">
+                        {% if image=='default.png' %}
+                            <img class="avatar border-white" src="  {{ image_file }}  " alt="lulenge" width=" {{ mesure }} " height=" {{ mesure }}  ">
+                        {% else %}
+                        <img class="avatar border-white" src="  {{ image_file }}  " alt="lulenge">
+                        {% endif %} 
+                      <h4 class="title">{{ profil.prenom}}<br>
+                         <a href="#"><small>@{{ profil.post_nom }} </small></a>
+                      </h4>
+                    </div>
+                    <p class="description text-center">
+                        Administrateur <br>
+                    </p>
+                </div>
+                <hr>
+                <div class="text-center">
+                    <div class="row">
+                        <div class="col-md-3 col-md-offset-1">
+                            <h5>12<br><small>Articles</small></h5>
+                        </div>
+                        <div class="col-md-4">
+                            <h5><br><small></small></h5>
+                        </div>
+                        <div class="col-md-3">
+                            <h5>24<br><small>Vue</small></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-7">
+            <div class="card">
+                    {% with messages= get_flashed_messages(with_categories=true) %}
+                    {% if messages  %}
+                      {% for category, message in messages %}
+                        <div class="alert text-center alert-{{ category }}">
+                          <b>{{ message }}</b>
+                        </div>
+                      {% endfor %}
+                    {% endif %}
+                    {% endwith %}
+                <div class="pull-left">
+                    <div class="header">
+                        <h4 class="title">Information utilisateur</h4>
+                    </div>
+                </div>
+                <div class="pull-right" style="margin-top:20px; margin-right:20px; margin-bottom:20px">
+                        <a href=" {{ url_for('users.editer_user')}} " class="btn btn-sm btn-info">Modifier</a>
+                </div>
+
+                <div class="content">
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <td>Prénom: </td>
+                                    <td>{{ profil.prenom }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Nom: </td>
+                                    <td>{{ profil.nom }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Post-nom: </td>
+                                    <td>{{ profil.post_nom }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email: </td>
+                                    <td>{{ profil.username }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Mot de passe: </td>
+                                    <td>********</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
