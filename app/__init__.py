@@ -50,5 +50,13 @@ def create_app(config_name):
     from .users import users as users_blueprint
     app.register_blueprint(users_blueprint)
 
+    #Les pages du dashbord, les posts
+    from .posts import posts as posts_blueprint
+    app.register_blueprint(posts_blueprint)
+
+    #Les pages du dashbord, les posts
+    from .rubriques import rubriques as rubriques_blueprint
+    app.register_blueprint(rubriques_blueprint)
+
     return app
 

@@ -10,6 +10,7 @@ def load_user(user_id):
 class Rubrique(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nom = db.Column(db.String(128))
+    status = db.Column(db.Boolean, default=False)
     contenus = db.relationship('Contenu', backref='rub_cont', lazy='dynamic')
     
 

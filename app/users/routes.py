@@ -81,10 +81,10 @@ def profil(user_id):
     form=EditerUserForm()
 
     if request.method =='GET':
-        form.nom.data=profil.nom
-        form.post_nom.data=profil.post_nom
-        form.prenom.data=profil.prenom
-        form.username.data=profil.username
+        form.nom_ed.data=profil.nom
+        form.post_nom_ed.data=profil.post_nom
+        form.prenom_ed.data=profil.prenom
+        form.username_ed.data=profil.username
 
     return render_template('user/profil.html', form=form, profil=profil, image_file=image_file, mesure=mesure,  image=profil.image_file )
 
@@ -95,21 +95,22 @@ def editer_user():
     #Formulaire d'etidtion de l'utilisateur
     form=EditerUserForm()
     #procedure d'injection et des mise a jour
-    if request.method=='POST': 
-        if form.picture.data:
+    if form.validate_on_submit():
+    #if request.method=='POST': 
+        if form.picture_ed.data:
             imagefile= save_picture(form.picture.data)
             current_user.image_file=imagefile
-        current_user.nom=form.nom.data
-        current_user.post_nom=form.post_nom.data
-        current_user.prenom=form.prenom.data
-        current_user.username=form.username.data
+        current_user.nom=form.nom_ed.data
+        current_user.post_nom=form.post_nom_ed.data
+        current_user.prenom=form.prenom_ed.data
+        current_user.username=form.username_ed.data
         db.session.commit()
         return redirect(url_for('users.profil', user_id=current_user.id ))
     elif request.method == 'GET':
-        form.nom.data=current_user.nom
-        form.post_nom.data=current_user.post_nom
-        form.prenom.data=current_user.prenom
-        form.username.data=current_user.username
+        form.nom_ed.data=current_user.nom
+        form.post_nom_ed.data=current_user.post_nom
+        form.prenom_ed.data=current_user.prenom
+        form.username_ed.data=current_user.username
     return render_template('user/editeruser.html', form=form )
 
 #Tableau de bord

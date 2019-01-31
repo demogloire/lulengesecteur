@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="row">
+    <div class="col-lg-3 col-md-3"></div>
+    <div class="col-lg-6 col-md-6">
+        <div class="card" style="margin-top:20%">
+            <div class="pull-left" style="margin-bottom:20px">
+                <div class="header">
+                    <h4 class="title">Ajouter rubirque</h4>
+                </div>
+			</div>
+			
+
+            <div class="content">
+                <form method="POST" action="">
+                    {{ form.csrf_token }}
+                    {% with messages= get_flashed_messages(with_categories=true) %}
+                      {% if messages  %}
+                        {% for category, message in messages %}
+                          <div class="alert text-center alert-{{ category }}">
+                            <b>{{ message }}</b>
+                          </div>
+                        {% endfor %}
+                      {% endif %}
+                    {% endwith %}
+               <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Nom de la rubrique</label>
+                            {% if form.nom_rub.errors %}
+                            {{ form.nom_rub(class="form-control border-input is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.nom_rub.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.nom_rub(class="form-control border-input")}}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div> 
+                <div class="text-center">
+                        {{ form.submit_rub(class="btn btn-info btn-fill btn-wd") }}
+                </div>
+                <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3"></div>
+</div>
+{% endblock body %}
+
+
+
+

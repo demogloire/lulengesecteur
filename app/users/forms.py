@@ -24,18 +24,16 @@ class RegisterForm(FlaskForm):
             raise ValidationError("E-mail existe")
 
 class EditerUserForm(FlaskForm):
-    nom= StringField('Nom', validators=[DataRequired("Completer nom"),  Length(min=4, max=20)])
-    post_nom= StringField('Post-nom', validators=[DataRequired("Completer post-nom"),  Length(min=4, max=20)])
-    prenom= StringField('Prénom', validators=[DataRequired("Completer prénom"),  Length(min=3, max=20)])
-    username= StringField('E-mail', validators=[DataRequired("Completer mail"), Email("E-mail invalide")])
-    password= PasswordField('Mot de passe', validators=[DataRequired("Completer Mot de passe"), Length(min=6, max=225)])
-    confirm_password= PasswordField('Confirmer mot de passe', validators=[DataRequired('Confirmer votre mot de passe'), EqualTo('password','Mot de passe non conforme')])
-    picture = FileField('Mise à jour photo profil', validators=[FileAllowed(['jpg','png'],'Seul jpg et png sont autorisés')])
-    submit = SubmitField('Mise à jour')
+    nom_ed= StringField('Nom', validators=[DataRequired("Completer nom"),  Length(min=4, max=20)])
+    post_nom_ed= StringField('Post-nom', validators=[DataRequired("Completer post-nom"),  Length(min=4, max=20)])
+    prenom_ed= StringField('Prénom', validators=[DataRequired("Completer prénom"),  Length(min=3, max=20)])
+    username_ed= StringField('E-mail', validators=[DataRequired("Completer mail"), Email("E-mail invalide")])
+    picture_ed = FileField('Mise à jour photo profil', validators=[FileAllowed(['jpg','png'],'Seul jpg et png sont autorisés')])
+    submit_ed = SubmitField('Mise à jour')
 
-    def validate_username(self, username):
-        if username.data != current_user.username:
-            user= User.query.filter_by(username=username.data).first()
+    def validate_username(self, username_ed):
+        if username_ed.data != current_user.username:
+            user= User.query.filter_by(username=username_ed.data).first()
             if user:
                 raise ValidationError("E-mail existe")
 

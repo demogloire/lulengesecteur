@@ -16,7 +16,7 @@
             </div>
 
             <div class="content">
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="{{ url_for('users.editer_user') }}" enctype="multipart/form-data">
                     {{ form.csrf_token }}
                     {% with messages= get_flashed_messages(with_categories=true) %}
                       {% if messages  %}
@@ -31,15 +31,15 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Prénom</label>
-                            {% if form.prenom.errors %}
-                            {{ form.prenom(class="form-control border-input is-invalid")}}
+                            {% if form.prenom_ed.errors %}
+                            {{ form.prenom_ed(class="form-control border-input is-invalid")}}
                             <div class="invalid-feedback">
-                                {% for error in form.prenom.errors %}
+                                {% for error in form.prenom_ed.errors %}
                                     <span>{{ error }}</span>
                                 {% endfor %}
                             </div>
                             {% else %}
-                            {{ form.prenom(class="form-control border-input",  placeholder="King")}}
+                            {{ form.prenom_ed(class="form-control border-input",  placeholder="King")}}
                             {% endif %}
                         </div>
                     </div>
@@ -48,30 +48,30 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Nom</label>
-                            {% if form.nom.errors %}
-                            {{ form.nom(class="form-control border-input is-invalid")}}
+                            {% if form.nom_ed.errors %}
+                            {{ form.nom_ed(class="form-control border-input is-invalid")}}
                             <div class="invalid-feedback">
-                                {% for error in form.nom.errors %}
+                                {% for error in form.nom_ed.errors %}
                                     <span>{{ error }}</span>
                                 {% endfor %}
                             </div>
                             {% else %}
-                            {{ form.nom(class="form-control border-input",  placeholder="Wilodja")}}
+                            {{ form.nom_ed(class="form-control border-input",  placeholder="Wilodja")}}
                             {% endif %}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Post-nom</label>
-                            {% if form.post_nom.errors %}
-                            {{ form.post_nom(class="form-control border-input is-invalid")}}
+                            {% if form.post_nom_ed.errors %}
+                            {{ form.post_nom_ed(class="form-control border-input is-invalid")}}
                             <div class="invalid-feedback">
-                                {% for error in form.post_nom.errors %}
+                                {% for error in form.post_nom_ed.errors %}
                                     <span>{{ error }}</span>
                                 {% endfor %}
                             </div>
                             {% else %}
-                            {{ form.post_nom(class="form-control border-input",  placeholder="Zihidalfe")}}
+                            {{ form.post_nom_ed(class="form-control border-input",  placeholder="Zihidalfe")}}
                             {% endif %}
                         </div>
                     </div>
@@ -80,15 +80,15 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>E-mail</label>
-                            {% if form.username.errors %}
-                            {{ form.username(class="form-control border-input is-invalid")}}
+                            {% if form.username_ed.errors %}
+                            {{ form.username_ed(class="form-control border-input is-invalid")}}
                             <div class="invalid-feedback">
-                                {% for error in form.username.errors %}
+                                {% for error in form.username_ed.errors %}
                                     <span>{{ error }}</span>
                                 {% endfor %}
                             </div>
                             {% else %}
-                            {{ form.username(class="form-control border-input",  placeholder="do@do.com")}}
+                            {{ form.username_ed(class="form-control border-input",  placeholder="do@do.com")}}
                             {% endif %}
                         </div>
                     </div>
@@ -97,21 +97,21 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Image profil</label>
-                            {% if form.picture.errors %}
-                            {{ form.picture(class="form-control-file is-invalid")}}
+                            {% if form.picture_ed.errors %}
+                            {{ form.picture_ed(class="form-control-file is-invalid")}}
                             <div class="invalid-feedback">
-                                {% for error in form.picture.errors %}
+                                {% for error in form.picture_ed.errors %}
                                     <span>{{ error }}</span>
                                 {% endfor %}
                             </div>
                             {% else %}
-                            {{ form.picture(class="form-control-file border-input")}}
+                            {{ form.picture_ed(class="form-control-file border-input")}}
                             {% endif %}
                         </div>
                     </div>
                 </div>
                 <div class="text-center">
-                        {{ form.submit(class="btn btn-info btn-fill btn-wd") }}
+                        {{ form.submit_ed(class="btn btn-info btn-fill btn-wd") }}
                 </div>
                 <div class="clearfix"></div>
             </form>
