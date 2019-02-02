@@ -13,10 +13,8 @@ class Rubrique(db.Model):
     status = db.Column(db.Boolean, default=False)
     contenus = db.relationship('Contenu', backref='rub_cont', lazy='dynamic')
     
-
     def __repr__(self):
-        return f"Rubrique('{self.nom}')"
-
+        return ' {} '.format(self.nom)
 
 class Contenu(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -24,10 +22,13 @@ class Contenu(db.Model):
     cont=db.Column(db.Text)
     date_post = db.Column(db.DateTime, nullable=False, default=datetime.utcnow )
     status = db.Column(db.Boolean, default=False)
+    descrip_image = db.Column(db.String(255))
+    slug = db.Column(db.String(255))
     files = db.relationship('File', backref='cont_file', lazy='dynamic')
     statistiques = db.relationship('Statistique', backref='cont_stat', lazy='dynamic')
     rubrique_id = db.Column(db.Integer, db.ForeignKey('rubrique.id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    
     def __repr__(self):
         return f"Contenu('{self.titre}','{self.cont}')"
 

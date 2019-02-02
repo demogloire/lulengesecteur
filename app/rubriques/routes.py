@@ -9,6 +9,7 @@ from . import rubriques
 
 #Ajouter une nouvelle rubrique dans le systeme
 @rubriques.route('/ajouter_rubrique', methods=['GET', 'POST'])
+@login_required
 def ajouter_rubrique():
     #Ajouter de la rubrique
     form=RubriqueForm()
@@ -22,6 +23,7 @@ def ajouter_rubrique():
 
 #Liste des rubiruque du systeme
 @rubriques.route('/liste_rubrique')
+@login_required
 def liste_rubrique():
      #Liste des rubriques
     list_rub=Rubrique.query.all()
@@ -31,6 +33,7 @@ def liste_rubrique():
 
 #Activation du statut de ribrique
 @rubriques.route('/status/<int:rub_id>', methods=['GET','POST'])
+@login_required
 def status_rub(rub_id):
     #Verification de l'existence de Rubirque
     rub_mo=Rubrique.query.filter_by(id=rub_id).first_or_404()
@@ -54,6 +57,7 @@ def status_rub(rub_id):
 
 #Activation du statut de ribrique
 @rubriques.route('/editer_user/<int:rub_id>', methods=['GET','POST'])
+@login_required
 def editer_user(rub_id):
 
     #Verification de l'existence de rubrique
