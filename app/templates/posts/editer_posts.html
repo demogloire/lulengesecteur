@@ -23,15 +23,15 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Titre de l'article</label>
-                                {% if form.titre.errors %}
-                                {{ form.titre(class="form-control border-input is-invalid")}}
+                                {% if form.titreed.errors %}
+                                {{ form.titreed(class="form-control border-input is-invalid")}}
                                 <div class="invalid-feedback">
-                                    {% for error in form.titre.errors %}
+                                    {% for error in form.titreed.errors %}
                                         <span>{{ error }}</span>
                                     {% endfor %}
                                 </div>
                                 {% else %}
-                                {{ form.titre(class="form-control border-input")}}
+                                {{ form.titreed(class="form-control border-input")}}
                                 {% endif %}
                             </div>
                         </div>
@@ -41,15 +41,15 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Contenue</label>
-                                {% if form.cont.errors %}
-                                {{ form.cont(class="form-control is-invalid", rows="3")}}
+                                {% if form.conted.errors %}
+                                {{ form.conted(class="form-control is-invalid", rows="3")}}
                                 <div class="invalid-feedback">
-                                    {% for error in form.cont.errors %}
+                                    {% for error in form.conted.errors %}
                                         <span>{{ error }}</span>
                                     {% endfor %}
                                 </div>
                                 {% else %}
-                                {{ form.cont(class="form-control is-invalid", rows="3")}}
+                                {{ form.conted(class="form-control is-invalid", rows="3")}}
                                 {% endif %}
                             </div>
                         </div>
@@ -58,15 +58,15 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Rubrique de l'article</label>
-                                {% if form.rubrique.errors %}
-                                {{ form.rubrique(class="form-control border-input is-invalid")}}
+                                {% if form.rubriqueed.errors %}
+                                {{ form.rubriqueed(class="form-control border-input is-invalid")}}
                                 <div class="invalid-feedback">
-                                    {% for error in form.rubrique.errors %}
+                                    {% for error in form.rubriqueed.errors %}
                                         <span>{{ error }}</span>
                                     {% endfor %}
                                 </div>
                                 {% else %}
-                                {{ form.rubrique(class="form-control border-input")}}
+                                {{ form.rubriqueed(class="form-control border-input")}}
                                 {% endif %}
                             </div>
                         </div>
@@ -75,15 +75,15 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Description de l'image</label>
-                                {% if form.descrip_image.errors %}
-                                {{ form.descrip_image(class="form-control border-input is-invalid")}}
+                                {% if form.descrip_imageed.errors %}
+                                {{ form.descrip_imageed(class="form-control border-input is-invalid")}}
                                 <div class="invalid-feedback">
-                                    {% for error in form.descrip_image.errors %}
+                                    {% for error in form.descrip_image.ederrors %}
                                         <span>{{ error }}</span>
                                     {% endfor %}
                                 </div>
                                 {% else %}
-                                {{ form.descrip_image(class="form-control border-input")}}
+                                {{ form.descrip_imageed(class="form-control border-input")}}
                                 {% endif %}
                             </div>
                         </div>
@@ -93,21 +93,21 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Image de l'article</label>
-                                {% if form.picture.errors %}
+                                {% if form.pictureed.errors %}
                                 {{ form.picture(class="form-control-file  is-invalid")}}
                                 <div class="invalid-feedback">
-                                    {% for error in form.picture.errors %}
+                                    {% for error in form.pictureed.errors %}
                                         <span>{{ error }}</span>
                                     {% endfor %}
                                 </div>
                                 {% else %}
-                                {{ form.picture(class="form-control-file ")}}
+                                {{ form.pictureed(class="form-control-file ")}}
                                 {% endif %}
                             </div>
                         </div>
                     </div>
                     <div class="text-center">
-                            {{ form.submit(class="btn btn-info btn-fill btn-wd") }}
+                            {{ form.submited(class="btn btn-info btn-fill btn-wd") }}
                     </div>
                     <div class="clearfix"></div>
                 </form>
@@ -116,9 +116,4 @@
     </div>
     <div class="col-lg-2 col-md-2"></div>
 </div>
-<script>
-        $(document).ready(function() {
-            $('#summernote').summernote();
-        });
-    </script>
 {% endblock %}

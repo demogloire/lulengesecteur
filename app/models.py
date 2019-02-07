@@ -23,6 +23,7 @@ class Contenu(db.Model):
     date_post = db.Column(db.DateTime, nullable=False, default=datetime.utcnow )
     status = db.Column(db.Boolean, default=False)
     descrip_image = db.Column(db.String(255))
+    thumb = db.Column(db.String(255))
     slug = db.Column(db.String(255))
     files = db.relationship('File', backref='cont_file', lazy='dynamic')
     statistiques = db.relationship('Statistique', backref='cont_stat', lazy='dynamic')
@@ -36,6 +37,7 @@ class File(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nom_file = db.Column(db.String(128))
     contenu_id = db.Column(db.Integer, db.ForeignKey('contenu.id'), nullable=False)
+    thumb=db.Column(db.String(128))
     def __repr__(self):
         return f"File('{self.nom_file}')"
 

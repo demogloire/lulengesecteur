@@ -3,6 +3,8 @@ from flask_bcrypt import Bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_migrate import Migrate
+from wtf_tinymce import wtf_tinymce
+
 #from mysql import connector
 
 #Importation des configuration de l'application sur le developpement de l'application
@@ -25,6 +27,7 @@ def create_app(config_name):
     db.init_app(app)
     bcrypt.init_app(app)
     login_manager.init_app(app)
+    wtf_tinymce.init_app(app)
 
     login_manager.login_message = "Veuillez vous connecté"
     login_manager.login_view = "authentification.login"
