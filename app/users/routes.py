@@ -66,6 +66,8 @@ def statuts_id(user_id):
 @users.route('/profil/<int:user_id>',  methods=['GET','POST'])
 @login_required
 def profil(user_id):
+
+    title="Compte de {} ".format(current_user.prenom) 
     #Requete d'affichage d'un utilisateur par son ID avec resique de 404
     profil= User.query.filter_by(id=user_id).first_or_404()
     #Lien dynamique
@@ -86,12 +88,15 @@ def profil(user_id):
         form.prenom_ed.data=profil.prenom
         form.username_ed.data=profil.username
 
-    return render_template('user/profil.html', form=form, profil=profil, image_file=image_file, mesure=mesure,  image=profil.image_file )
+    return render_template('user/profil.html', form=form, profil=profil, image_file=image_file, mesure=mesure,  image=profil.image_file, title=title )
 
 #Mise à jour des information de l'utilisateur
 @users.route('/editer_user',methods=['GET','POST'])
 @login_required
 def editer_user():
+
+    #Titre du site web
+    title="Modifier utilisateur"
     #Formulaire d'etidtion de l'utilisateur
     form=EditerUserForm()
     #procedure d'injection et des mise a jour
@@ -111,7 +116,7 @@ def editer_user():
         form.post_nom_ed.data=current_user.post_nom
         form.prenom_ed.data=current_user.prenom
         form.username_ed.data=current_user.username
-    return render_template('user/editeruser.html', form=form )
+    return render_template('user/editeruser.html', form=form, title=title  )
 
 #Tableau de bord
 @users.route('/dashboard')
@@ -119,7 +124,7 @@ def editer_user():
 def dashboard():
     pass
 
-    return render_template('authentification/dashboard.html', title="Tableau de ord")
+    return render_template('authentification/dashboard.html', title="Dashboard")
 
 #Modification de l'utilisateur
 @users.route('/editerpass', methods=['GET','POST'])
@@ -140,3 +145,21 @@ def editerpass():
 def logout():
     logout_user()
     return redirect(url_for('authentification.login'))
+
+
+#Page des configuration
+@users.route('/configuration')
+@login_required
+def configuration():
+    title='Configuration'
+    return render_template('user/configuration.html', title=title)
+
+
+#Page de vote
+@users.route('/vote')
+@login_required
+def vote():
+    title='Vote'
+    return render_template('user/vote.html', title=title)
+
+

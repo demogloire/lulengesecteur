@@ -45,7 +45,7 @@
                 <tbody>
                     {% for post in posts.items %}
                         <tr>
-                            <td><img  src="{{url_for('static', filename='profil/'+post.cont_user.image_file )}}" class="img-responsive img-circle" height="40px" width="40px" alt="">
+                            <td><img  src="{{url_for('static', filename='profil/'+post.cont_user.image_file )}}" class="avatar border-white" height="40px" width="40px" alt="">
                                 
                             </td>
                             <td>{{ post.titre }}</td>

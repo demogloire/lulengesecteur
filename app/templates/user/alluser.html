@@ -21,6 +21,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
+                    <th>Picture </th>
                     <th>Nom </th>
                     <th>Post-nom</th>
                     <th>Prénom</th>
@@ -29,6 +30,7 @@
                 <tbody>
                     {% for user in users %}
                         <tr>
+                            <td> <img class="avatar border-white" src="  {{ url_for('static', filename='profil/'+ user.image_file) }}  " alt="lulenge" width="40px" height="40px"></td>
                             <td>{{ user.nom }}</td>
                             <td>{{ user.post_nom }}</td>
                             <td>{{ user.prenom }}</td>

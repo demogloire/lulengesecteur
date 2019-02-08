@@ -11,6 +11,8 @@ from . import rubriques
 @rubriques.route('/ajouter_rubrique', methods=['GET', 'POST'])
 @login_required
 def ajouter_rubrique():
+
+    title="Ajouter rubrique"
     #Ajouter de la rubrique
     form=RubriqueForm()
     if form.validate_on_submit():
@@ -19,16 +21,18 @@ def ajouter_rubrique():
         db.session.commit()
         flash('Ajout de rubrique avec succès','success')
         return redirect(url_for('users.dashboard'))
-    return render_template('rubriques/ajouterrub.html', title="Welcome", form=form)
+    return render_template('rubriques/ajouterrub.html', form=form, title=title)
 
 #Liste des rubiruque du systeme
 @rubriques.route('/liste_rubrique')
 @login_required
 def liste_rubrique():
+
+    title="Liste des rubriques"
      #Liste des rubriques
     list_rub=Rubrique.query.all()
 
-    return render_template('rubriques/listerub.html', title="Welcome", rub=list_rub)
+    return render_template('rubriques/listerub.html', title=title, rub=list_rub)
 
 
 #Activation du statut de ribrique
@@ -52,7 +56,7 @@ def status_rub(rub_id):
             flash("La rubrique est activée sur la plateforme",'success')
             return redirect(url_for('rubriques.liste_rubrique'))
 
-    return render_template('rubriques/listerub.html',  title="Welcome")
+    return render_template('rubriques/listerub.html')
 
 
 #Activation du statut de ribrique
@@ -60,6 +64,7 @@ def status_rub(rub_id):
 @login_required
 def editer_user(rub_id):
 
+    title="Modification de la rubrique"
     #Verification de l'existence de rubrique
     rubriques=Rubrique.query.filter_by(id=rub_id).first_or_404()
     if rubriques is None:
@@ -74,6 +79,6 @@ def editer_user(rub_id):
     elif request.method == 'GET':
         form.nomedrub.data=rubriques.nom
 
-    return render_template('rubriques/editerrub.html',  title="Welcome", form=form)
+    return render_template('rubriques/editerrub.html',  title=title, form=form)
 
     
