@@ -43,10 +43,11 @@ def ajouter_article():
 @posts.route('/tous_articles')
 @login_required
 def tous_articles():
+    title='Liste des articles'
     page= request.args.get('page', 1, type=int)
     post_page=Contenu.query.order_by(Contenu.date_post.desc()).paginate(page=page, per_page=5)
 
-    return render_template('posts/allposts.html', title="Welcome", posts=post_page)
+    return render_template('posts/allposts.html', title=title, posts=post_page)
 
 @posts.route('/tous_articles/<int:post_id>', methods=['GET', 'POST'])
 @login_required

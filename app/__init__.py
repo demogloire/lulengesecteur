@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_migrate import Migrate
 from wtf_tinymce import wtf_tinymce
+from flask.ext.markdown import Markdown
 
 #from mysql import connector
 
@@ -28,12 +29,13 @@ def create_app(config_name):
     bcrypt.init_app(app)
     login_manager.init_app(app)
     wtf_tinymce.init_app(app)
+    
 
     login_manager.login_message = "Veuillez vous connecté"
     login_manager.login_view = "authentification.login"
     login_manager.login_message_category ='danger'
     migrate = Migrate(app, db)
-
+    md= Markdown(app, extensions=['fenced_code'])
     from app import models
 
     ''' 
