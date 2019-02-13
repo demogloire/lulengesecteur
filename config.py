@@ -13,6 +13,8 @@ class DevelopmentConfig(Config):
     SECRET_KEY = '9462bfc3ca8d37b136173798873d05ea'
     DEBUG = True
     SQLALCHEMY_ECHO = True
+    SIMPLEMDE_JS_IIFE = False
+    SIMPLEMDE_USE_CDN = False
 
 
 class ProductionConfig(Config):
@@ -21,6 +23,11 @@ class ProductionConfig(Config):
     """
 
     DEBUG = False
+    SECRET_KEY = '9462bfc3ca8d37b136173798873d05ea'
+    DEBUG = True
+    SIMPLEMDE_JS_IIFE = False
+    SIMPLEMDE_USE_CDN = False
+
 
 app_config = {
     'development': DevelopmentConfig,

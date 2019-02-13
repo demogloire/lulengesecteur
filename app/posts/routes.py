@@ -12,6 +12,7 @@ from . import posts
 @login_required
 def ajouter_article():
     
+    title="Ajouter article"
     #Formulaire d'ajout des informations de l'article
     form=AjouterArticleForm()
     #Envoi du formulaire des informations
@@ -38,7 +39,7 @@ def ajouter_article():
             return redirect(url_for('posts.ajouter_article'))
         flash('ajouter reussie','success')
         return redirect(url_for('posts.tous_articles'))
-    return render_template('posts/ajouterpost.html', title="Welcome", form=form)
+    return render_template('posts/ajouterpost.html', title=title, form=form)
 
 @posts.route('/tous_articles')
 @login_required
@@ -77,14 +78,16 @@ def statuts_id(post_id):
 @posts.route('/apercu/<int:post_id>')
 @login_required
 def apercu(post_id):
+    
     post=Contenu.query.filter_by(id=post_id).first_or_404()
+    title= '{}'.format(post.titre) 
     if post is None:
         return redirect(url_for('posts.tous_articles'))
     else:
         image=File.query.filter_by(cont_file=post).first_or_404()
         image_file= url_for('static', filename='posts/page/'+image.nom_file)
             
-    return render_template('posts/apercu.html', post=post, image_file=image_file)
+    return render_template('posts/apercu.html', post=post, image_file=image_file, title=title)
 
 
 

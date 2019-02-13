@@ -39,19 +39,20 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Contenue</label>
+                            <div class="form-group has-success">
+                                <label>Contenue</label>                              
                                 {% if form.cont.errors %}
-                                {{ form.cont(class="form-control is-invalid", rows="3")}}
+                                {{ form.cont( rows="10", class="form-control", placehorlder="Markdown text svp")}}
                                 <div class="invalid-feedback">
                                     {% for error in form.cont.errors %}
                                         <span>{{ error }}</span>
                                     {% endfor %}
                                 </div>
                                 {% else %}
-                                {{ form.cont(class="form-control is-invalid", rows="3")}}
+                                {{ form.cont(rows="10", class="form-control ")}}
                                 {% endif %}
                             </div>
+                           
                         </div>
                     </div>
                     <div class="row">
@@ -116,9 +117,5 @@
     </div>
     <div class="col-lg-2 col-md-2"></div>
 </div>
-<script>
-        $(document).ready(function() {
-            $('#summernote').summernote();
-        });
-    </script>
+<!-- {{ simplemde.load_id("third") }} -->
 {% endblock %}
