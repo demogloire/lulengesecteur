@@ -1,0 +1,10 @@
+<table>
+    {%for encours in candidat%}
+    <tr>
+        <td> {{loop.index}} </td>
+        <td>{{ encours.noms}}</td>
+        <td>{{ encours.partie}}</td>
+        <td>{{ encours.compteur}}</td>
+    </tr>
+    {%endfor%}
+</table>

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block body %}
+
+                        
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8" style="margin-top: 50px;">
+        <div class="card">
+            <div class="row">
+                    <div class="pull-left">
+                            <div class="header"><h4 class="title">Liste des sondages</h4> <br>
+                                <div class="btn-group">
+                                <a href=" {{ url_for('encours.liste_encours') }} " class="btn btn-infor btn-sm">
+                                          Gestion des sondages
+                                </a>
+                                <a href=" {{ url_for('sondage.ajouter_sondage') }} " class="btn btn-infor btn-sm">
+                                        Candidats aux sondages
+                                </a>
+                                </div>
+                            </div>
+                    </div>
+            </div>
+    
+            <div class="row" style="margin-top:10px">
+                    {% with messages= get_flashed_messages(with_categories=true) %}
+                    {% if messages  %}
+                      {% for category, message in messages %}
+                        <div class="alert text-center alert-{{ category }}">
+                          <b>{{ message }}</b>
+                        </div>
+                      {% endfor %}
+                    {% endif %}
+                  {% endwith %}
+            </div>
+    
+            <div class="content table-responsive table-full-width">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                        <th>N° </th>
+                        <th>Titre du sondage</th>
+                        <th>Action</th>
+                    </tr></thead>
+                    <tbody>
+                        {% for sondage in encours%}
+                            <tr>
+                                <td> {{loop.index}} </td>
+                                <td>{{ sondage.titre }}</td>
+                                <td>  
+                                    <div class="btn-group">
+                                        <a href=" {{url_for('sondage.sondage_passe', sondage_id=sondage.id)}} " class="btn btn-primary btn-sm">
+                                                <span class="ti-file"></span>
+                                         </a>
+                                      </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+</div>
+{% endblock body %}
+
+
+
+

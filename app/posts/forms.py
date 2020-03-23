@@ -14,8 +14,7 @@ def rubrique_list():
 class AjouterArticleForm(FlaskForm):
     titre= StringField('Titre', validators=[DataRequired("Completer le titre")])
     cont= TextAreaField('Contenue', validators=[DataRequired("Completer le contenue")])
-    descrip_image= StringField('Prénom', validators=[DataRequired("Completer la description de l'image")])
-    picture = FileField('Mise à jour photo profil', validators=[FileAllowed(['jpg','png'],'Seul jpg et png sont autorisés')])
+    picture = FileField('Mise à jour photo profil', validators=[DataRequired("Charger l'image svp"), FileAllowed(['jpg','png'],'Seul jpg et png sont autorisés')])
     rubrique = QuerySelectField(query_factory=rubrique_list, get_label='nom', allow_blank=False)
     submit = SubmitField('Enregister')
 

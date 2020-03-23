@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="row">
+    <div class="col-lg-2 col-md-2"></div>
+    <div class="col-lg-8 col-md-8">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Ajouter un article</h4>
+            </div>
+            <div class="content">
+                <form method="POST" enctype="multipart/form-data">
+                        {{ form.csrf_token }}
+                        {% with messages= get_flashed_messages(with_categories=true) %}
+						  {% if messages  %}
+							{% for category, message in messages %}
+							  <div class="alert text-center alert-{{ category }}">
+								<b>{{ message }}</b>
+							  </div>
+							{% endfor %}
+						  {% endif %}
+						{% endwith %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Titre de l'article</label>
+                                {% if form.titreed.errors %}
+                                {{ form.titreed(class="form-control border-input is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.titreed.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.titreed(class="form-control border-input")}}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Contenue</label>
+                                {% if form.conted.errors %}
+                                {{ form.conted(class="form-control is-invalid", rows="3")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.conted.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.conted(class="form-control is-invalid", rows="3")}}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Rubrique de l'article</label>
+                                {% if form.rubriqueed.errors %}
+                                {{ form.rubriqueed(class="form-control border-input is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.rubriqueed.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.rubriqueed(class="form-control border-input")}}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Description de l'image</label>
+                                {% if form.descrip_imageed.errors %}
+                                {{ form.descrip_imageed(class="form-control border-input is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.descrip_image.ederrors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.descrip_imageed(class="form-control border-input")}}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Image de l'article</label>
+                                {% if form.pictureed.errors %}
+                                {{ form.picture(class="form-control-file  is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.pictureed.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.pictureed(class="form-control-file ")}}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                            {{ form.submited(class="btn btn-info btn-fill btn-wd") }}
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-2"></div>
+</div>
+{% endblock %}

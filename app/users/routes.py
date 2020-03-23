@@ -155,11 +155,6 @@ def configuration():
     return render_template('user/configuration.html', title=title)
 
 
-#Page de vote
-@users.route('/vote')
-@login_required
-def vote():
-    title='Vote'
-    return render_template('user/vote.html', title=title)
+
 
 

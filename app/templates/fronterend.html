@@ -1,958 +1,106 @@
-<html lang="en"><!-- Mirrored from sbtechnosoft.com/prohub/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Nov 2018 10:37:51 GMT --><head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Prohub</title>
-    <!-- Bootstrap CSS -->
-    <link href="{{ url_for('static',filename='frontend/assets/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="{{ url_for('static',filename='frontend/css/style.css')}} " rel="stylesheet">
-    <!-- Colors CSS -->
-    <link href= "{{ url_for('static',filename='frontend/css/one.css')}} " id="style_theme" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-    <body>
-    <!-- Pre Loader -->
-    
-    <!-- Color Swicher -->
-    <div class="theme-settings" id="switcher"> <span class="theme-click"><i class="fa fa-cog fa-spin" aria-hidden="true"></i></span> <span class="theme-color theme-default theme-active" data-color="one"></span> <span class="theme-color theme-color-two" data-color="two"></span> <span class="theme-color theme-color-three" data-color="three"></span> <span class="theme-color theme-color-four" data-color="four"></span>
-    <span class="theme-color theme-color-five" data-color="five"></span><span class="theme-color theme-color-six" data-color="six"></span><span class="theme-color theme-color-seven" data-color="seven"></span><span class="theme-color theme-color-eight" data-color="eight"></span>
-    </div>
-    <!-- Top Wrapper Start -->
-    <div class="top-wrapper">
-      <div class="container">
-        <div class="row"> 
-          <!-- TOP LEFT -->
-          <div class="col-md-8 col-sm-9">
-            <div class="top-address">
-              <p>Welcome to our Prohub template </p>
-            </div>
-          </div>
-          <!-- TOP RIGHT -->
-          <div class="col-md-4 col-sm-3">
-            <div class="top-right-menu">
-              <ul class="social-icons text-right">
-                <li><a class="facebook social-icon" href="javascript:void(0)" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                <li><a class="twitter social-icon" href="javascript:void(0)" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                <li><a class="pinterest social-icon" href="javascript:void(0)" title="pinterest"><i class="fa fa-pinterest"></i></a></li>
-                <li><a class="linkedin social-icon" href="javascript:void(0)" title="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                <li><a class="dribbble social-icon" href="javascript:void(0)" title="Dribbble"><i class="fa fa-dribbble"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Top Wrapper End -->
-    <!-- Header Logo Area Start -->
-    <div class="header-logo-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-5 col-lg-3 col-md-12">
-            <div class="logo"> <a class="main_sticky_main_l" href="index-2.html" title="Prohub"> Pro<span>hub</span></a> </div>
-          </div>
-          <div class="col-xl-7 col-lg-9 col-md-12 d-none d-lg-block d-md-block">
-            <div class="row">
-              <div class="col-md-4 col-sm-4">
-                <div class="header-logo-address">
-                  <div class="header-logo-icon"> <i class="fa fa-phone-square"></i> </div>
-                  <div class="header-logo-text">
-                    <p>+01 666 777 999</p>
-                    <p>+01 555 222 457</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-4">
-                <div class="header-logo-address">
-                  <div class="header-logo-icon"> <i class="fa fa-envelope"></i> </div>
-                  <div class="header-logo-text">
-                    <p>info@gmail.com</p>
-                    <p>info@test.com</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-4">
-                <div class="header-logo-address last-child">
-                  <div class="header-logo-icon"> <i class="fa fa-globe"></i> </div>
-                  <div class="header-logo-text">
-                    <p>www.website.com</p>
-                    <p>www.test.com</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Header Logo Area End -->
-    <!-- Menu Area Start -->
-    <div class="mainmenu-area header-sticky bg-dark-1 sticky">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12 col-md-12 d-none d-md-block d-lg-block">
-              <div class="main-menu-area">
-                <nav>
-                  <ul>
-                    <li class="active"><a href="index-2.html">Home</a></li>
-                    <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="#">Gallery<i class="fa fa-angle-down"></i></a>
-                      <ul class="dropdown_menu">
-                        <li><a href="grid-gallery.html">Grid Gallery</a></li>
-                        <li><a href="full-gallery.html">Full Width Gallery</a></li>
-                        <li><a href="masonry-gallery.html">Masonry Gallery</a></li>
-                        <li><a href="modern-gallery.html">Modern Gallery</a></li>
-                      </ul>
-                    </li>				
-                    <li class="meg-drp-menu"><a href="#">Features<i class="fa fa-angle-down"></i></a>
-                      <ul class="mega-menu">
-                        <li>
-                          <h2>Pages</h2>
-                          <ul>
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="our-team.html">Our Team</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                            <li><a href="appointment.html">Appointment</a></li>
-                          </ul>
-                        </li>
-                        <li>
-                          <h2>Extras</h2>
-                          <ul>
-                           <li><a href="404.html">404</a></li>
-                           <li><a href="503.html">503</a></li>
-                           <li><a href="coming-soon.html">Coming Soon</a></li>
-                           <li><a href="login.html">Login</a></li>
-                           <li><a href="register.html">Register</a></li>
-                           <li><a href="search-results.html">Search results</a></li>
-                           <li><a href="privacy-policy.html">Terms of use</a></li>
-                          </ul>
-                        </li>
-                        <li>
-                          <h2>Components</h2>
-                          <ul>
-                            <li><a href="accordion.html">Accordion</a></li>
-                            <li><a href="buttons.html">Buttons</a></li>
-                            <li><a href="grid.html">Grid</a></li>
-                            <li><a href="forms.html">Forms</a></li>
-                            <li><a href="tabs.html">Tabs</a></li>
-                            <li><a href="table-styles.html">Table styles</a></li>
-                            <li><a href="typography.html">Typography</a></li>
-                          </ul>
-                        </li>
-                        <li>
-                          <h2>Blog</h2>
-                          <ul>
-                            <li><a href="blog-classic.html">Blog classic</a></li>
-                            <li><a href="blog-grid.html">Blog grid</a></li>
-                            <li><a href="blog-left.html">Blog Left</a></li>
-                            <li><a href="blog-right.html">Blog Right</a></li>
-                            <li><a href="blog-fullwidth.html">Blog Full Width</a></li>
-                            <li><a href="blog-details.html">Blog Details</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a href="#">Pages<i class="fa fa-angle-down"></i></a>
-                      <ul class="dropdown_menu">
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="our-team.html">Our Team</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                            <li><a href="appointment.html">Appointment</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                      <ul class="dropdown_menu">
-                    <li><a href="blog-classic.html">Blog classic</a></li>
-                    <li><a href="blog-grid.html">Blog grid</a></li>
-                    <li><a href="blog-left.html">Blog Left</a></li>
-                    <li><a href="blog-right.html">Blog Right</a></li>
-                    <li><a href="blog-fullwidth.html">Blog Full Width</a></li>
-                    <li><a href="blog-details.html">Blog Details</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
-                  </ul>
-                <div class="search-form d-sm-none d-md-none d-xl-block">
-                  <form method="post" action="http://sbtechnosoft.com/prohub/contact-us.html">
-                    <div class="form-group clearfix">
-                      <input name="email" value="" placeholder="Search" required="" type="email">
-                      <button type="submit" class="theme-btn subscribe-btn"><span class="fa fa-search"></span></button>
-                    </div>
-                  </form>
-                </div>	  
-                </nav>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-12 d-block d-md-none d-lg-none"> 
-              <!-- Mobile Menu Area Start -->
-              <div class="mobile-menu-area">
-                <div class="mobile-menu">
-                  <nav id="mobile-menu-active" style="display: block;">
-                    <ul>
-                    <li class="active"><a href="index-2.html">Home</a></li>
-                    <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="#">Gallery</a>
-                      <ul class="dropdown_menu">
-                        <li><a href="grid-gallery.html">Grid Gallery</a></li>
-                        <li><a href="full-gallery.html">Full Width Gallery</a></li>
-                        <li><a href="masonry-gallery.html">Masonry Gallery</a></li>
-                        <li><a href="modern-gallery.html">Modern Gallery</a></li>
-                      </ul>
-                    </li>				
-                    <li class="meg-drp-menu"><a href="#">Features</a>
-                      <ul class="mega-menu">
-                        <li>
-                          <a href="#">Pages</a>
-                          <ul>
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="our-team.html">Our Team</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                            <li><a href="appointment.html">Appointment</a></li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a href="#">Extras</a>
-                          <ul>
-                           <li><a href="404.html">404</a></li>
-                           <li><a href="503.html">503</a></li>
-                           <li><a href="coming-soon.html">Coming Soon</a></li>
-                           <li><a href="login.html">Login</a></li>
-                           <li><a href="register.html">Register</a></li>
-                           <li><a href="search-results.html">Search results</a></li>
-                           <li><a href="privacy-policy.html">Terms of use</a></li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a href="#">Components</a>
-                          <ul>
-                            <li><a href="accordion.html">Accordion</a></li>
-                            <li><a href="buttons.html">Buttons</a></li>
-                            <li><a href="grid.html">Grid</a></li>
-                            <li><a href="forms.html">Forms</a></li>
-                            <li><a href="tabs.html">Tabs</a></li>
-                            <li><a href="table-styles.html">Table styles</a></li>
-                            <li><a href="typography.html">Typography</a></li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a href="#">Blog</a>
-                          <ul>
-                            <li><a href="blog-classic.html">Blog classic</a></li>
-                            <li><a href="blog-grid.html">Blog grid</a></li>
-                            <li><a href="blog-left.html">Blog Left</a></li>
-                            <li><a href="blog-right.html">Blog Right</a></li>
-                            <li><a href="blog-fullwidth.html">Blog Full Width</a></li>
-                            <li><a href="blog-details.html">Blog Details</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a href="#">Pages</a>
-                      <ul class="dropdown_menu">
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="our-team.html">Our Team</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                            <li><a href="appointment.html">Appointment</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#">Blog</a>
-                      <ul class="dropdown_menu">
-                    <li><a href="blog-classic.html">Blog classic</a></li>
-                    <li><a href="blog-grid.html">Blog grid</a></li>
-                    <li><a href="blog-left.html">Blog Left</a></li>
-                    <li><a href="blog-right.html">Blog Right</a></li>
-                    <li><a href="blog-fullwidth.html">Blog Full Width</a></li>
-                    <li><a href="blog-details.html">Blog Details</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="contact-us.html">Contact Us</a></li>
-                  </ul>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Mobile Menu Area End --> 
-     <!-- SLIDER  AREA Start -->
-    <div class="main-slider-area">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="sb-nivo-slider-wrapper kc-elm kc-css-242493">
-            <div id="mainSlider" class="nivoSlider sb-slider-image"> 
-              <img src="{{ url_for('static',filename='frontend/images/slider1.jpg')}} " alt="" title="#htmlcaption1_30" style="display: none; width: 1349px;"> 
-              <img src="{{ url_for('static',filename='frontend/images/slider2.jpg')}}" alt="" title="#htmlcaption1_28" style="width: 1349px; visibility: hidden;"> 
-              <img class="nivo-main-image" src="{{ url_for('static',filename='frontend/images/slider3.jpg')}}" style="width: 1349px; height: 597.2px;">
-              <div class="nivo-caption" style="display: block;">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-              <div class="sb-slider_inner container">
-                <div class="wow fadeInUpBig  animated" data-wow-duration="1.2s" data-wow-delay="0s" style="visibility: visible; animation-duration: 1.2s; animation-delay: 0s; animation-name: fadeInUpBig;">
-                  <h2 class="sb-slider-title">Welcome to Prohub Team</h2>
-                </div>
-                <div class="wow fadeInUpBig  animated" data-wow-duration="1.5s" data-wow-delay="0s" style="visibility: visible; animation-duration: 1.5s; animation-delay: 0s; animation-name: fadeInUpBig;">
-                  <h1 class="sb-slider-sub-title">Multipurpose Responsive Template</h1>
-                </div>
-                <div class="wow fadeInUpBig animated" data-wow-duration="2s" data-wow-delay="0s" style="visibility: hidden; animation-duration: 2s; animation-delay: 0s; animation-name: none;">
-                  <p class="sb-slider-descript">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-                <div class="sb-slider-button wow  bounceInUp  sb-button-button-area animated" data-wow-duration="3s" data-wow-delay="0.5s" style="visibility: hidden; animation-duration: 3s; animation-delay: 0.5s; animation-name: none;"> <a class="sb-active-button" href="https://themeforest.net/user/sbtechnosoft/portfolio">Buy Now</a> </div>
-              </div>
-            </div><div class="nivo-directionNav"><a class="nivo-prevNav"><i class="fa fa-angle-left nivo-prev-icon"></i></a><a class="nivo-nextNav"><i class="fa fa-angle-right nivo-next-icon"></i></a></div><div class="nivo-slice" name="0" style="left: 0px; width: 75px; height: 597.2px; opacity: 1; overflow: hidden; bottom: 0px;"><img src="images/slider2.jpg" style="position:absolute; width:1349px; height:auto; display:block !important; top:0; left:-0px;"></div><div class="nivo-slice" name="1" style="left: 75px; width: 75px; height: 597.2px; opacity: 1; overflow: hidden; bottom: 0px;"><img src="images/slider2.jpg" style="position:absolute; width:1349px; height:auto; display:block !important; top:0; left:-75px;"></div><div class="nivo-slice" name="2" style="left: 150px; width: 75px; height: 597.2px; opacity: 1; overflow: hidden; bottom: 0px;"><img src="images/slider2.jpg" style="position:absolute; width:1349px; height:auto; display:block !important; top:0; left:-150px;"></div><div class="nivo-slice" name="3" style="left: 225px; width: 75px; height: 597.2px; opacity: 1; overflow: hidden; bottom: 0px;"><img src="images/slider2.jpg" style="position:absolute; width:1349px; height:auto; display:block !important; top:0; left:-225px;"></div><div class="nivo-slice" name="4" style="left: 300px; width: 75px; height: 597.2px; opacity: 1; overflow: hidden; bottom: 0px;"><img src="images/slider2.jpg" style="position:absolute; width:1349px; height:auto; display:block !important; top:0; left:-300px;"></div><div class="nivo-slice" name="5" style="left: 375px; width: 75px; height: 597.2px; opacity: 1; overflow: hidden; bottom: 0px;"><img src="images/slider2.jpg" style="position:absolute; width:1349px; height:auto; display:block !important; top:0; left:-375px;"></div><div class="nivo-slice" name="6" style="left: 450px; width: 75px; height: 597.2px; opacity: 1; overflow: hidden; bottom: 0px;"><img src="images/slider2.jpg" style="position:absolute; width:1349px; height:auto; display:block !important; top:0; left:-450px;"></div><div class="nivo-slice" name="7" style="left: 525px; width: 75px; height: 597.2px; opacity: 1; overflow: hidden; bottom: 0px;"><img src="images/slider2.jpg" style="position:absolute; width:1349px; height:auto; display:block !important; top:0; left:-525px;"></div><div class="nivo-slice" name="8" style="left: 600px; width: 75px; height: 597.2px; opacity: 1; overflow: hidden; bottom: 0px;"><img src="images/slider2.jpg" style="position:absolute; width:1349px; height:auto; display:block !important; top:0; left:-600px;"></div><div class="nivo-slice" name="9" style="left: 675px; width: 75px; height: 597.2px; opacity: 1; overflow: hidden; bottom: 0px;"><img src="images/slider2.jpg" style="position:absolute; width:1349px; height:auto; display:block !important; top:0; left:-675px;"></div><div class="nivo-slice" name="10" style="left: 750px; width: 75px; height: 597.2px; opacity: 1; overflow: hidden; bottom: 0px;"><img src="images/slider2.jpg" style="position:absolute; width:1349px; height:auto; display:block !important; top:0; left:-750px;"></div><div class="nivo-slice" name="11" style="left: 825px; width: 75px; height: 597.2px; opacity: 1; overflow: hidden; bottom: 0px;"><img src="images/slider2.jpg" style="position:absolute; width:1349px; height:auto; display:block !important; top:0; left:-825px;"></div><div class="nivo-slice" name="12" style="left: 900px; width: 75px; height: 597.2px; opacity: 1; overflow: hidden; bottom: 0px;"><img src="images/slider2.jpg" style="position:absolute; width:1349px; height:auto; display:block !important; top:0; left:-900px;"></div><div class="nivo-slice" name="13" style="left: 975px; width: 75px; height: 597.2px; opacity: 1; overflow: hidden; bottom: 0px;"><img src="images/slider2.jpg" style="position:absolute; width:1349px; height:auto; display:block !important; top:0; left:-975px;"></div><div class="nivo-slice" name="14" style="left: 1050px; width: 75px; height: 597.2px; opacity: 1; overflow: hidden; bottom: 0px;"><img src="images/slider2.jpg" style="position:absolute; width:1349px; height:auto; display:block !important; top:0; left:-1050px;"></div><div class="nivo-slice" name="15" style="left: 1125px; width: 75px; height: 597.2px; opacity: 1; overflow: hidden; bottom: 0px;"><img src="images/slider2.jpg" style="position:absolute; width:1349px; height:auto; display:block !important; top:0; left:-1125px;"></div><div class="nivo-slice" name="16" style="left: 1200px; width: 75px; height: 597.2px; opacity: 1; overflow: hidden; bottom: 0px;"><img src="images/slider2.jpg" style="position:absolute; width:1349px; height:auto; display:block !important; top:0; left:-1200px;"></div><div class="nivo-slice" name="17" style="left: 1275px; width: 74px; height: 597.2px; opacity: 1; overflow: hidden; bottom: 0px;"><img src="images/slider2.jpg" style="position:absolute; width:1349px; height:auto; display:block !important; top:0; left:-1275px;"></div></div><div class="nivo-controlNav"><a class="nivo-control" rel="0">1</a><a class="nivo-control active" rel="1">2</a></div>
-            <!-- sb-slider style-1 start -->
-            <div id="htmlcaption1_30" class="nivo-html-caption sb-slider-content-nivo">
-              <div class="sb-slider_inner container  text-left">
-                <div class="wow fadeInUpBig animated" data-wow-duration="1.2s" data-wow-delay="0s" style="visibility: visible; animation-duration: 1.2s; animation-delay: 0s; animation-name: fadeInUpBig;">
-                  <h2 class="sb-slider-title">Welcome to Prohub Team</h2>
-                </div>
-                <div class="wow slideInRight animated" data-wow-duration="2s" data-wow-delay="0s" style="visibility: visible; animation-duration: 2s; animation-delay: 0s; animation-name: slideInRight;">
-                  <h1 class="sb-slider-sub-title">Multipurpose Responsive Template</h1>
-                </div>
-                <div class="wow slideInRight animated" data-wow-duration="2s" data-wow-delay="0s" style="visibility: visible; animation-duration: 2s; animation-delay: 0s; animation-name: slideInRight;">
-                  <h1 class="sb-slider-sub-title">We are Creative </h1>
-                </div>
-                <div class="wow slideInRight animated" data-wow-duration="3s" data-wow-delay="0s" style="visibility: visible; animation-duration: 3s; animation-delay: 0s; animation-name: slideInRight;">
-                  <p class="sb-slider-descript">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-                <div class="sb-slider-button wow bounceInUp sb-button-button-area animated" data-wow-duration="3s" data-wow-delay="0s" style="visibility: visible; animation-duration: 3s; animation-delay: 0s; animation-name: bounceInUp;"> <a class="sb-active-button" href="https://themeforest.net/user/sbtechnosoft/portfolio">Buy Now</a> </div>
-              </div>
-            </div>
-            <!-- sb-slider style-1 end --> 
-            
-            <!-- sb-slider style-1 start -->
-            <div id="htmlcaption1_28" class="nivo-html-caption sb-slider-content-nivo">
-              <div class="sb-slider_inner container">
-                <div class="wow fadeInUpBig animated" data-wow-duration="1.2s" data-wow-delay="0s" style="visibility: visible; animation-duration: 1.2s; animation-delay: 0s; animation-name: fadeInUpBig;">
-                  <h2 class="sb-slider-title">Welcome to Prohub Team</h2>
-                </div>
-                <div class="wow fadeInUpBig animated" data-wow-duration="1.5s" data-wow-delay="0s" style="visibility: visible; animation-duration: 1.5s; animation-delay: 0s; animation-name: fadeInUpBig;">
-                  <h1 class="sb-slider-sub-title">Multipurpose Responsive Template</h1>
-                </div>
-                <div class="wow fadeInUpBig animated" data-wow-duration="2s" data-wow-delay="0s" style="visibility: visible; animation-duration: 2s; animation-delay: 0s; animation-name: fadeInUpBig;">
-                  <p class="sb-slider-descript">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-                <div class="sb-slider-button wow  bounceInUp  sb-button-button-area animated" data-wow-duration="3s" data-wow-delay="0.5s" style="visibility: visible; animation-duration: 3s; animation-delay: 0.5s; animation-name: bounceInUp;"> <a class="sb-active-button" href="https://themeforest.net/user/sbtechnosoft/portfolio">Buy Now</a> </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Slider Wrapper End -->
-    <!-- Our Featured Wrapper Start -->
-    <div class="featured-wrapper">
-    <div class="container">
-    <div class="section-title">
-    <h2>Our Features </h2>
-    <div class="separator"></div>
-    </div>
-    <div class="row">
-    <div class="col-md-6 col-lg-3 no-padding">
-    <div class="featured-box">
-    <span class="icon icon-picture"></span>
-      <h5>Web Design</h5>
-      <p>It is a long established fact that a reader.</p>
-      <a href="javascript:void(0)" class="bttn">Read More</a>
-      </div>
-    </div> 
-    <div class="col-md-6 col-lg-3 no-padding">
-    <div class="featured-box active">
-    <span class="icon icon-gears"></span>
-      <h5>Front Coding</h5>
-      <p>It is a long established fact that a reader.</p>
-      <a href="javascript:void(0)" class="bttn">Read More</a>
-      </div>
-    </div> 
-    <div class="col-md-6 col-lg-3 no-padding">
-    <div class="featured-box">
-    <span class="icon icon-lightbulb"></span>
-      <h5>Wordpress</h5>
-      <p>It is a long established fact that a reader.</p>
-      <a href="javascript:void(0)" class="bttn">Read More</a>
-      </div>
-    </div> 
-    <div class="col-md-6 col-lg-3 no-padding">
-    <div class="featured-box">
-    <span class="icon icon-phone"></span>
-      <h5>App Development</h5>
-      <p>It is a long established fact that a reader.</p>
-      <a href="javascript:void(0)" class="bttn">Read More</a>
-      </div>
-    </div> 
-    </div>
-    </div>
-    </div>
-    <!-- Our Featured Wrapper Start -->
-    <!-- Our Services Wrapper Start -->
-    <section class="our-services-wrapper">
-    <div class="container">
-    <div class="section-title">
-    <h2>Our Services</h2>
-    <div class="separator"></div>
-    </div>
-    <div class="row">
-    <div class="col-md-6 col-lg-4">
-      <div class="single-services">
-        <div class="media"> <i class="mt-2 icon icon-picture"></i>
-          <div class="media-body"> <h3><a href="javascript:void(0)">Web Design</a></h3>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4">
-      <div class="single-services">
-        <div class="media"> <i class="mt-2 icon icon-pencil"></i>
-          <div class="media-body"> <h3><a href="javascript:void(0)">Development</a></h3>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4">
-      <div class="single-services">
-        <div class="media"> <i class="mt-2 icon icon-mobile"></i>
-          <div class="media-body"> <h3><a href="javascript:void(0)">Mobile Apps</a></h3>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4">
-      <div class="single-services">
-        <div class="media"> <i class="mt-2 icon icon-basket"></i>
-          <div class="media-body"> <h3><a href="javascript:void(0)">Ecommerce</a></h3>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4">
-      <div class="single-services">
-        <div class="media"> <i class="mt-2 icon icon-strategy"></i>
-          <div class="media-body"> <h3><a href="javascript:void(0)">Analytics</a></h3>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4">
-      <div class="single-services">
-        <div class="media"> <i class="mt-2 icon icon-chat"></i>
-          <div class="media-body"> <h3><a href="javascript:void(0)">Great Support</a></h3>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    </div>
-    </section>
-    <!-- Our Services Wrapper End -->
-    <!-- Our Team Wrapper Start -->
-    <div class="our-team-wrapper">
-    <div class="container">
-    <div class="row">
-    <div class="col-xl-4 col-md-5">
-    <div class="business-title-left">
-    <h2>Team Members</h2>
-    <span class="title-border-left"></span>
-    </div>
-    <div class="team-members-left">
-    <p>At vero eos et accusamus et iusto odioarweres dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecatisdgh cupiditate nonprovident dfgdftr.</p>
-    <a href="javascript:void(0)" class="bttn">Check Our Team</a> </div>
-    </div>
-    <div class="col-xl-8 col-md-7">
-    <div class="team-members-right">
-    <div class="owl-carousel team-members owl-theme owl-responsive-768 owl-loaded">
-      
-      
-      
-      
-      
-    <div class="owl-stage-outer" style="padding-left: 0px; padding-right: 0px;"><div class="owl-stage" style="width: 2713.34px; transition-duration: 0.25s; transform: translate3d(-1233.34px, 0px, 0px);"><div class="owl-item cloned" style="width: 236.667px; margin-right: 10px;"><div class="item hover01">
-        <figure><img src="images/our-team3.jpg" alt="" class=""></figure>
-        <div class="team-caption">
-        <h3><a href="#">Jhon Smith</a></h3>
-        <p>Director</p>
-        </div>
-      </div></div><div class="owl-item cloned" style="width: 236.667px; margin-right: 10px;"><div class="item hover01">
-        <figure><img src="images/our-team4.jpg" alt="" class=""></figure>
-        <div class="team-caption">
-        <h3><a href="#">Jhon Smith</a></h3>
-        <p>Director</p>
-        </div>
-      </div></div><div class="owl-item cloned" style="width: 236.667px; margin-right: 10px;"><div class="item hover01">
-        <figure><img src="images/our-team2.jpg" alt="" class=""></figure>
-        <div class="team-caption">
-        <h3><a href="#">Jhon Smith</a></h3>
-        <p>Director</p>
-        </div>
-      </div></div><div class="owl-item" style="width: 236.667px; margin-right: 10px;"><div class="item hover01">
-        <figure><img src="images/our-team1.jpg" alt="" class=""></figure>
-        <div class="team-caption">
-        <a href="#">Jhon Smith</a>
-        <h3>Director</h3>
-        </div>
-      </div></div><div class="owl-item" style="width: 236.667px; margin-right: 10px;"><div class="item hover01">
-        <figure><img src="images/our-team2.jpg" alt="" class=""></figure>
-        <div class="team-caption">
-        <h3><a href="#">Jhon Smith</a></h3>
-        <p>Director</p>
-        </div>
-      </div></div><div class="owl-item active" style="width: 236.667px; margin-right: 10px;"><div class="item hover01">
-        <figure><img src="images/our-team3.jpg" alt="" class=""></figure>
-        <div class="team-caption">
-        <h3><a href="#">Jhon Smith</a></h3>
-        <p>Director</p>
-        </div>
-      </div></div><div class="owl-item active" style="width: 236.667px; margin-right: 10px;"><div class="item hover01">
-        <figure><img src="images/our-team4.jpg" alt="" class=""></figure>
-        <div class="team-caption">
-        <h3><a href="#">Jhon Smith</a></h3>
-        <p>Director</p>
-        </div>
-      </div></div><div class="owl-item active" style="width: 236.667px; margin-right: 10px;"><div class="item hover01">
-        <figure><img src="images/our-team2.jpg" alt="" class=""></figure>
-        <div class="team-caption">
-        <h3><a href="#">Jhon Smith</a></h3>
-        <p>Director</p>
-        </div>
-      </div></div><div class="owl-item cloned" style="width: 236.667px; margin-right: 10px;"><div class="item hover01">
-        <figure><img src="images/our-team1.jpg" alt="" class=""></figure>
-        <div class="team-caption">
-        <a href="#">Jhon Smith</a>
-        <h3>Director</h3>
-        </div>
-      </div></div><div class="owl-item cloned" style="width: 236.667px; margin-right: 10px;"><div class="item hover01">
-        <figure><img src="images/our-team2.jpg" alt="" class=""></figure>
-        <div class="team-caption">
-        <h3><a href="#">Jhon Smith</a></h3>
-        <p>Director</p>
-        </div>
-      </div></div><div class="owl-item cloned" style="width: 236.667px; margin-right: 10px;"><div class="item hover01">
-        <figure><img src="images/our-team3.jpg" alt="" class=""></figure>
-        <div class="team-caption">
-        <h3><a href="#">Jhon Smith</a></h3>
-        <p>Director</p>
-        </div>
-      </div></div></div></div><div class="owl-controls"><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div></div></div></div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <!-- Our Team Wrapper End -->
-    <!-- Numbering Wrapper Start -->
-    <div class="counter-wrapper">
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-3 col-md-6">
-            <div class="counter">
-              <div class="counter-icon-box">
-             <div class="counter-icon">
-             <div class="icon"><a href="#"><i class="icon icon-clock"></i></a></div>
-             </div>
-              <div class="count-description">
-              <div class="number animateNumber active" data-num="6535">6535</div>
-              <p>Hours Worked</p>
-            </div>
-            </div>
-          </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="counter">
-              <div class="counter-icon-box">
-             <div class="counter-icon">
-             <div class="icon"><a href="#"><i class="icon icon-mobile"></i></a></div>
-             </div>
-              <div class="count-description">
-              <div class="number animateNumber active" data-num="585">585</div>
-              <p>Projects Completed</p>
-            </div>
-            </div>
-          </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="counter">
-              <div class="counter-icon-box">
-             <div class="counter-icon">
-             <div class="icon"><a href="#"><i class="icon icon-presentation"></i></a></div>
-             </div>
-              <div class="count-description">
-              <div class="number animateNumber active" data-num="28">28</div>
-              <p>Theme Experts</p>
-            </div>
-            </div>
-          </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="counter">
-              <div class="counter-icon-box">
-             <div class="counter-icon">
-             <div class="icon"><a href="#"><i class="icon icon-trophy"></i></a></div>
-             </div>
-              <div class="count-description">
-              <div class="number animateNumber active" data-num="775">775</div>
-              <p>Awards Won</p>
-            </div>
-            </div>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Numbering Wrapper End -->
-    <!-- Our Blog Wrapper Start -->
-    <div class="blog-wrapper">
-    <div class="container">
-    <div class="section-title">
-    <h2>Our Latest Blog</h2>
-    <div class="separator"></div>
-    </div>
-    <div class="row">
-    <div class="col-md-6">
-    <div class="blog_box_wrapper">
-      <div class="blog_img_wraper"> <img src="images/blog_1.jpg" alt=""> </div>
-      <div class="blog_icon_overlay">
-        <ul>
-          <li> 19 <span> JUNE</span> </li>
-          <li> 02 <span> COM.</span> </li>
-          <li> <img class="img-responsive" src="images/blog_png_1.png" alt=""> </li>
-        </ul>
-      </div>
-      <div class="blog_btm_cntnt">
-        <h2>Where does it come from</h2>
-        <p class="pad-b-10">Integer dignissim egestas est, id tristique eros pharetra sit amet. Duis et ipsum pellentesque, porta ante.</p>
-        <a href="javascript:void(0)" class="tb_toppadder20">read more</a> </div>
-    </div>
-    </div>
-    <div class="col-md-6">
-    <div class="blog_box_wrapper">
-      <div class="blog_img_wraper"> <img src="images/blog_2.jpg" alt=""> </div>
-      <div class="blog_icon_overlay">
-        <ul>
-          <li> 19 <span> JUNE</span> </li>
-          <li> 02 <span> COM.</span> </li>
-          <li> <img class="img-responsive" src="images/blog_png_1.png" alt=""> </li>
-        </ul>
-      </div>
-      <div class="blog_btm_cntnt">
-        <h2>Duis ultricies aliquet mauris</h2>
-        <p class="pad-b-10">Integer dignissim egestas est, id tristique eros pharetra sit amet. Duis et ipsum pellentesque, porta ante.</p>
-        <a href="javascript:void(0)" class="tb_toppadder20">read more</a> </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <!-- Our Blog Wrapper End -->
-    <!-- Our CTA Wrapper Start -->
-    <div class="our-cta-wrapper">
-    <div class="container">
-    <div class="cta-content">
-    <h2>Do you Need This Template. Please Download Now!</h2>
-    <a href="https://themeforest.net/user/sbtechnosoft/portfolio" class="bttn">Buy Now</a>
-    </div>
-    </div>
-    </div>
-    <!-- Our CTA Wrapper End -->
-    <!-- Pricing Wrapper End -->
-    <section class="pricing-wrapper">
-    <div class="container">
-    <div class="section-title">
-    <h2>Our Pricing Plan</h2>
-    <div class="separator"></div>
-    </div>
-    <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-6">
-    <div class="pricing_table">
-      <div class="top_border_1"></div>
-      <div class="price_table_icon"> <i class="icon icon-tools"></i> </div>
-      <div class="price_table_title">
-        <h5>Professional</h5>
-      </div>
-      <div class="price_table_list">
-        <ul>
-          <li>02 PSD File</li>
-          <li>45 days free trial</li>
-          <li>Sale after service</li>
-          <li>Free Domain</li>
-          <li>Free Support</li>
-        </ul>
-      </div>
-      <div class="price_table_tag">
-        <h6>$<span>10</span>/Month</h6>
-      </div>
-      <div class="price_table_btn"> <a href="javascript:void(0)">Purchase</a> </div>
-    </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-6">
-    <div class="pricing_table">
-      <div class="top_border_1"></div>
-      <div class="price_table_icon"> <i class="icon icon-layers"></i> </div>
-      <div class="price_table_title">
-        <h5>Advance</h5>
-      </div>
-      <div class="price_table_list">
-        <ul>
-          <li>10 PSD File</li>
-          <li>45 days free trial</li>
-          <li>Sale after service</li>
-          <li>Free Domain</li>
-          <li>Free Support</li>
-        </ul>
-      </div>
-      <div class="price_table_tag">
-        <h6>$<span>20</span>/Month</h6>
-      </div>
-      <div class="price_table_btn"> <a href="javascript:void(0)">Purchase</a> </div>
-    </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-6">
-    <div class="pricing_table">
-      <div class="top_border_1"></div>
-      <div class="price_table_icon"> <i class="icon icon-global"></i> </div>
-      <div class="price_table_title">
-        <h5>Premium</h5>
-      </div>
-      <div class="price_table_list">
-        <ul>
-          <li>50 PSD File</li>
-          <li>45 days free trial</li>
-          <li>Sale after service</li>
-          <li>Free Domain</li>
-          <li>Free Support</li>
-        </ul>
-      </div>
-      <div class="price_table_tag">
-        <h6>$<span>50</span>/Month</h6>
-      </div>
-      <div class="price_table_btn"> <a href="javascript:void(0)">Purchase</a> </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </section>
-    <!-- Pricing Wrapper End -->
-    <!-- Testimonials Wrapper End -->
-    <section class="testimonials-wrapper">
-    <div class="container">
-    <div class="section-title">
-    <h2>What Clients Says</h2>
-    <div class="separator"></div>
-    </div>
-    <div class="two-item-carousel owl-carousel owl-theme owl-loaded">
-    <!--Testimonial Block-->
-    
-    <!--Testimonial Block-->
-    
-    <!--Testimonial Block-->
-    
-    <!--Testimonial Block-->
-    
-    <div class="owl-stage-outer" style="padding-left: 0px; padding-right: 0px;"><div class="owl-stage" style="width: 4560px; transition-duration: 0.5s; transform: translate3d(-2280px, 0px, 0px);"><div class="owl-item cloned" style="width: 540px; margin-right: 30px;"><div class="testimonial-block">
-      <div class="inner-box">
-        <div class="image"> <img src="images/comments3.png" alt=""> </div>
-        <div class="content">
-          <div class="quote-icon fa fa-quote-right"></div>
-          <div class="author-info">Les Stone <span>/ CEO at Showroom INC</span></div>
-          <div class="text">Sed elit quam, iaculis sed semper sit amet udin vitae nibh. at magna akal semperFusce commodo molestie luctus.Lorem ipsum Dolor tusima olatiup.</div>
-        </div>
-      </div>
-    </div></div><div class="owl-item cloned" style="width: 540px; margin-right: 30px;"><div class="testimonial-block">
-      <div class="inner-box">
-        <div class="image"> <img src="images/comments2.png" alt=""> </div>
-        <div class="content">
-          <div class="quote-icon fa fa-quote-right"></div>
-          <div class="author-info">John Doe <span>/ Managerment at Envato</span></div>
-          <div class="text">Sed elit quam, iaculis sed semper sit amet udin vitae nibh. at magna akal semperFusce commodo molestie luctus.Lorem ipsum Dolor tusima olatiup.</div>
-        </div>
-      </div>
-    </div></div><div class="owl-item" style="width: 540px; margin-right: 30px;"><div class="testimonial-block">
-      <div class="inner-box">
-        <div class="image"> <img src="images/comments1.png" alt=""> </div>
-        <div class="content">
-          <div class="quote-icon fa fa-quote-right"></div>
-          <div class="author-info">Jeson Jons <span>/ CEO at Showroom Prohub</span></div>
-          <div class="text">Sed elit quam, iaculis sed semper sit amet udin vitae nibh. at magna akal semperFusce commodo molestie luctus.Lorem ipsum Dolor tusima olatiup.</div>
-        </div>
-      </div>
-    </div></div><div class="owl-item" style="width: 540px; margin-right: 30px;"><div class="testimonial-block">
-      <div class="inner-box">
-        <div class="image"> <img src="images/comments2.png" alt=""> </div>
-        <div class="content">
-          <div class="quote-icon fa fa-quote-right"></div>
-          <div class="author-info">Mark Warren <span>/ Managerment at Envato</span></div>
-          <div class="text">Sed elit quam, iaculis sed semper sit amet udin vitae nibh. at magna akal semperFusce commodo molestie luctus.Lorem ipsum Dolor tusima olatiup.</div>
-        </div>
-      </div>
-    </div></div><div class="owl-item active" style="width: 540px; margin-right: 30px;"><div class="testimonial-block">
-      <div class="inner-box">
-        <div class="image"> <img src="images/comments3.png" alt=""> </div>
-        <div class="content">
-          <div class="quote-icon fa fa-quote-right"></div>
-          <div class="author-info">Les Stone <span>/ CEO at Showroom INC</span></div>
-          <div class="text">Sed elit quam, iaculis sed semper sit amet udin vitae nibh. at magna akal semperFusce commodo molestie luctus.Lorem ipsum Dolor tusima olatiup.</div>
-        </div>
-      </div>
-    </div></div><div class="owl-item active" style="width: 540px; margin-right: 30px;"><div class="testimonial-block">
-      <div class="inner-box">
-        <div class="image"> <img src="images/comments2.png" alt=""> </div>
-        <div class="content">
-          <div class="quote-icon fa fa-quote-right"></div>
-          <div class="author-info">John Doe <span>/ Managerment at Envato</span></div>
-          <div class="text">Sed elit quam, iaculis sed semper sit amet udin vitae nibh. at magna akal semperFusce commodo molestie luctus.Lorem ipsum Dolor tusima olatiup.</div>
-        </div>
-      </div>
-    </div></div><div class="owl-item cloned" style="width: 540px; margin-right: 30px;"><div class="testimonial-block">
-      <div class="inner-box">
-        <div class="image"> <img src="images/comments1.png" alt=""> </div>
-        <div class="content">
-          <div class="quote-icon fa fa-quote-right"></div>
-          <div class="author-info">Jeson Jons <span>/ CEO at Showroom Prohub</span></div>
-          <div class="text">Sed elit quam, iaculis sed semper sit amet udin vitae nibh. at magna akal semperFusce commodo molestie luctus.Lorem ipsum Dolor tusima olatiup.</div>
-        </div>
-      </div>
-    </div></div><div class="owl-item cloned" style="width: 540px; margin-right: 30px;"><div class="testimonial-block">
-      <div class="inner-box">
-        <div class="image"> <img src="images/comments2.png" alt=""> </div>
-        <div class="content">
-          <div class="quote-icon fa fa-quote-right"></div>
-          <div class="author-info">Mark Warren <span>/ Managerment at Envato</span></div>
-          <div class="text">Sed elit quam, iaculis sed semper sit amet udin vitae nibh. at magna akal semperFusce commodo molestie luctus.Lorem ipsum Dolor tusima olatiup.</div>
-        </div>
-      </div>
-    </div></div></div></div><div class="owl-controls"><div class="owl-nav"><div class="owl-prev"><span class="fa fa-angle-left"></span></div><div class="owl-next"><span class="fa fa-angle-right"></span></div></div><div class="owl-dots"><div class="owl-dot"><span></span></div><div class="owl-dot active"><span></span></div></div></div></div>
-    </div>
-    </section>
-    <!-- News Letter Wrapper End -->
-    <section class="newsletter">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-12">
-            <h4><span class="text-primary">Subscribe</span> <br>
-              For Latest <span class="text-primary">Update</span></h4>
-          </div>
-          <div class="col-lg-9 col-12">
-            <form>
-              <div class="form-group">
-                <input class="form-control" id="exampleInputName" placeholder="Your name" type="text">
-              </div>
-              <div class="form-group">
-                <input class="form-control" id="exampleInputEmail" placeholder="Your email" type="email">
-              </div>
-              <button class="bttn">Subscribe</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- News Letter Wrapper End -->
-    <!-- Testimonials Wrapper End -->
-    <!-- Footer Wrapper End -->
-    <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-3 col-md-6">
-            <div class="footer-text"> <a class="footer-logo" href="index-2.html">Pro<span>hub</span></a>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation.</p>
-              <div class="social-icons"> <a href="javascript:void(0)" class="bttn"> <i class="fa fa-twitter"></i> </a> <a href="javascript:void(0)" class="bttn"><i class="fa fa-linkedin"></i></a> <a href="javascript:void(0)" class="bttn"> <i class="fa fa-facebook"></i> </a> <a href="javascript:void(0)" class="bttn"> <i class="fa fa-skype"></i> </a> <a href="javascript:void(0)" class="bttn"> <i class="fa fa-pinterest-p"></i> </a> </div>
-            </div>
-          </div>
-          <div class="col-xl-2 col-md-3">
-            <div class="links">
-              <h3>Links</h3>
-              <ul class="">
-                <li><a href="index-2.html">Home</a></li>
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="blog.html">Blog</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-3">
-            <div class="location">
-              <h3>Location</h3>
-              <ul>
-                <li>Excepteur sint occaecat cupidat non proident sunt.</li>
-                <li><i class="fa fa-home"></i> 1201 Park Street, Fifth Avenue,</li>
-                <li><i class="fa fa-phone"></i> <a href="#">[01] 657 524 332</a></li>
-                <li><i class="fa fa-envelope"></i> <a href="mailto:"> info@sbtechnosoft.com </a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-xl-4 col-md-12">
-            <div class="instagram">
-              <h3>Instagram</h3>
-              <ul class="row gram-image">
-                <li class="col-xs-4 col-4"><a href="#"><img alt="" src="images/insta1.jpg"></a></li>
-                <li class="col-xs-4 col-4"><a href="#"><img alt="" src="images/insta2.jpg"></a></li>
-                <li class="col-xs-4 col-4"><a href="#"><img alt="" src="images/insta3.jpg"></a></li>
-                <li class="col-xs-4 col-4"><a href="#"><img alt="" src="images/insta4.jpg"></a></li>
-                <li class="col-xs-4 col-4"><a href="#"><img alt="" src="images/insta5.jpg"></a></li>
-                <li class="col-xs-4 col-4"><a href="#"><img alt="" src="images/insta6.jpg"></a></li>
-              </ul>
-            </div>
-          </div>
-          
-          <!-- BACK TO TOP BUTTON --> 
-          <!-- COPY RIGHT --> 
-        </div>
-        <div class="copyright">
-          <hr>
-          <div class="row justify-content-center">
-            <div class="col-sm-6">
-              <div class="copyRight_text text-center">
-                <p>© Copyright <span id="year">2019</span> Prohub Bootstrap Template by <a class="text-primary" href="http://www.sbtechnosoft.com/" target="_blank">sbtechnosoft</a>.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    
-    <!-- Footer Wrapper End --> 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-    <script src=" {{ url_for('static',filename='frontend/assets/jquery/jquery-min.js')}} "></script> 
-    <script src="  {{ url_for('static',filename='frontend/assets/jquery/plugins.js')}} "></script> 
-    <script src="{{ url_for('static',filename='frontend/assets/jquery/jquery.animateNumber.min.js')}} "></script> 
-    <script src="{{ url_for('static',filename='frontend/assets/bootstrap/js/bootstrap.min.js')}}  "></script> 
-    <script src="{{ url_for('static',filename='frontend/assets/owl-carousel/js/owl.carousel.min.js')}}  "></script> 
-    <script src="{{ url_for('static',filename='frontend/assets/wow/wow.min.js')}}  "></script> 
-    <script src="{{ url_for('static',filename='frontend/assets/jquery/jquery.mainmenu.js')}}  "></script> 
-    <script src="{{ url_for('static',filename='frontend/assets/jquery/jquery.nivo.slider.pack.js')}} "></script> 
-    <script src="{{ url_for('static',filename='frontend/assets/jquery/magnific-popup.min.js')}} "></script> 
-    <script src="{{ url_for('static',filename='frontend/js/custom.js')}} "></script>
-    
-    
-    
-    <a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647;"><i class="fa fa-angle-up"></i></a>
-    </body>
-    </html>
+	<title>Secteur de Lulenge Fizi</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400%7CSource+Sans+Pro:700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='frontend/css/bootstrap.min.css')}}" />
+
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='frontend/css/owl.carousel.css')}}" />
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='frontend/css/owl.theme.default.css')}}" />
+
+	<!-- Font Awesome Icon -->
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='frontend/css/font-awesome.min.css')}}" />
+
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='frontend/css/style.css')}}" />
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+	{% block addcss %}{% endblock %}
+</head>
+
+<body>
+	<!-- HEADER -->
+	<header id="home">
+		<!-- NAVGATION -->
+		<nav id="main-navbar">
+			<div class="container">
+				<div class="navbar-header">
+					<!-- Logo -->
+					<div class="navbar-brand">
+						<a class="logo" href=" {{url_for('main.homepage')}}  "><img src=" {{url_for('static', filename='other/logo.png')}}" alt="logo"></a>
+					</div>
+					<!-- Logo -->
+
+					<!-- Mobile toggle -->
+					<button class="navbar-toggle-btn">
+							<i class="fa fa-bars"></i>
+						</button>
+					<!-- Mobile toggle -->
+
+					<!-- Mobile Search toggle -->
+					<button class="search-toggle-btn">
+							<i class="fa fa-search"></i>
+						</button>
+					<!-- Mobile Search toggle -->
+				</div>
+
+				<!-- Search -->
+				<div class="navbar-search">
+					<button class="search-btn"><i class="fa fa-search"></i></button>
+					<div class="search-form">
+						<form>
+							<input class="input" type="text" name="search" placeholder="Search">
+						</form>
+					</div>
+				</div>
+				<!-- Search -->
+
+				<!-- Nav menu -->
+				{% block menu_header %}{% endblock %}
+				<!-- Nav menu -->
+			</div>
+		</nav>
+		<!-- /NAVGATION -->
+
+		<!-- HOME OWL -->
+		{% block slider %}{% endblock %}
+		<!-- /HOME OWL -->
+	</header>
+	<!-- /HEADER -->
+
+	<!-- ABOUT -->
+	{% block body %}{% endblock %}
+	
+
+	<!-- FOOTER -->
+	{% block footer %}{% endblock %}
+	<!-- /FOOTER -->
+
+	<!-- jQuery Plugins -->
+	<script src="{{url_for('static', filename='frontend/js/jquery.min.js')}}"></script>
+	<script src="{{url_for('static', filename='frontend/js/bootstrap.min.js')}}"></script>
+	<script src="{{url_for('static', filename='frontend/js/owl.carousel.min.js')}}"></script>
+	<script src="{{url_for('static', filename='frontend/js/jquery.stellar.min.js')}}"></script>
+	<script src="{{url_for('static', filename='frontend/js/main.js')}}"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+
+{% block addcss %}
+<script src=" {{ url_for('static', filename='summnernote/jquer.js')}} "></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='summnernote/summernote-lite.css')}} ">
+<script src="{{ url_for('static', filename='summnernote/summernote-lite.js')}}"></script>
+{% endblock %}
+
+
+{% block body %}
+
+
+
+
+<div class="row">
+    <div class="col-lg-1 col-md-1"></div>
+    <div class="col-lg-10 col-md-10" style="margin-top: 100px;">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Modification des informations du candidats</h4>
+            </div>
+            <div class="content">
+                <form method="POST" enctype="multipart/form-data">
+                        {{ form.csrf_token }}
+                        {% with messages= get_flashed_messages(with_categories=true) %}
+						  {% if messages  %}
+							{% for category, message in messages %}
+							  <div class="alert text-center alert-{{ category }}">
+								<b>{{ message }}</b>
+							  </div>
+							{% endfor %}
+						  {% endif %}
+						{% endwith %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Nom du candidat</label>
+                                {% if form.noms.errors %}
+                                {{ form.noms(class="form-control border-input is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.noms.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.noms(class="form-control border-input")}}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Parti politique</label>
+                                {% if form.partie.errors %}
+                                {{ form.partie(class="form-control border-input is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.partie.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.partie(class="form-control border-input")}}
+                                {% endif %}
+                            </div>
+                           
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Sondage</label>
+                                {% if form.encours.errors %}
+                                {{ form.encours(class="form-control border-input is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.encours.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.encours(class="form-control border-input")}}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Photo</label>
+                                {% if form.picture.errors %}
+                                {{ form.picture(class="form-control-file  is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.picture.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.picture(class="form-control-file ")}}
+                                {% endif %}
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="text-center">
+                            {{ form.submit(class="btn btn-warning btn-fill btn-wd") }}
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-1 col-md-1"></div>
+</div>
+{% endblock %}

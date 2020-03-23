@@ -20,7 +20,7 @@ def ajouter_rubrique():
         db.session.add(rub)
         db.session.commit()
         flash('Ajout de rubrique avec succès','success')
-        return redirect(url_for('users.dashboard'))
+        return redirect(url_for('rubriques.liste_rubrique'))
     return render_template('rubriques/ajouterrub.html', form=form, title=title)
 
 #Liste des rubiruque du systeme

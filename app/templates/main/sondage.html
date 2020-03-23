@@ -1,0 +1,107 @@
+{% extends "fronternd_temp.html" %}
+
+{% block addcss %}
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+{% endblock %}
+
+{% block head_menu %}
+{% include 'elements/header_two.html' %}
+{% endblock %}
+
+
+{% block body %}
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- MAIN -->
+            <main id="main" class="col-md-9">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="section-title text-center">
+                            <h2 class="title">Sondage</h2>
+                            <p class="sub-title"><b>Participer au sondage sur <i>"{{sondage_nom}}"</i> en faisant votre choix.</b></p>
+                        </div>
+                    </div>
+
+                    {%for candidats in candidat.items%}
+                    <div class="col-md-4">
+                        <div class="causes box-shadow--3dp" style="padding: 10px; border-radius: 10px;">
+                            <div class="causes-img">
+                                <a href="">
+                                    <img src="{{url_for('static', filename='posts/thumb/'+candidats.avatar )}}">
+                                </a>
+                            </div> <br>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar"
+                                    aria-valuenow="{{ ((candidats.compteur)/total_sondage) * 100  }}" aria-valuemin="0"
+                                    aria-valuemax="100"
+                                    style="width: {{((candidats.compteur)/total_sondage) * 100|int }}%">
+                                    {{((candidats.compteur)/total_sondage) * 100}}%
+                                </div>
+                            </div>
+                            <div class="causes-content text-center">
+                                <h4><span class="label label-info">{{candidats.noms}}-{{candidats.partie}}</span></h4>
+                                <form action=" {{url_for('sondage.vote', vote_id=candidats.id)}} " method="GET">
+                                    <button class="btn btn-danger btn-md">Voté <small><span
+                                                class="label label-info">{{candidats.compteur}}</span></small> </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+
+
+
+                    <!-- pagination -->
+                    <div class="col-md-12">
+                        <ul class="article-pagination">
+                            {% for page_num in candidat.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                            {% if page_num %}
+                            {% if candidat.page==page_num %}
+                            <li><a class="active"
+                                    href="{{ url_for('main.sondage_vue', page=page_num) }}">{{ page_num}}</a></li>
+                            {% else %}
+                            <li><a href="{{ url_for('main.sondage_vue', page=page_num) }}">{{ page_num}}</a></li>
+                            {% endif %}
+                            {% else %}
+                            ...
+                            {% endif %}
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                    <!-- /pagination -->
+                </div>
+            </main>
+            <!-- /MAIN -->
+
+            <!-- ASIDE -->
+            <aside id="aside" class="col-md-3">
+                <br><br><br><br>
+                <!-- category widget -->
+                <div class="widget">
+                    <h3> Rapport des sondages</h3>
+                    <div class="widget-category">
+                        <ul>
+                            {%for rapport in encours_rapport%}
+
+                            <li><a href=" {{url_for('main.sondage_rapport', sond_id=rapport.id)}} ">{{rapport.titre}} <i class="fa fa-download"></i></a></li>
+
+                            {%endfor%}
+                        </ul>
+                    </div>
+                </div>
+                <!-- /category widget -->
+            </aside>
+            <!-- /ASIDE -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+{% endblock %}
+{% block footer %}
+{% include 'elements/footer.html' %}
+{% endblock %}

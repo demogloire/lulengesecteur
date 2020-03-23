@@ -67,5 +67,20 @@ def create_app(config_name):
     from .rubriques import rubriques as rubriques_blueprint
     app.register_blueprint(rubriques_blueprint)
 
+    #Ajout de l'album photo
+    from .album import album as album_blueprint
+    app.register_blueprint(album_blueprint)
+
+    #Ajout Le sondage
+    from .encours import encours as encours_blueprint
+    app.register_blueprint(encours_blueprint)
+
+    #Ajout Le sondage
+    from .sondage import sondage as sondage_blueprint
+    app.register_blueprint(sondage_blueprint)
+
+    
+
+
     return app
 

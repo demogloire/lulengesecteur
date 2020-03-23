@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="row">
+    <div class="col-lg-2 col-md-2"></div>
+    <div class="col-lg-8 col-md-8">
+        <div class="card" style="margin-top:10%; margin-bottom:27%">
+                    {% with messages= get_flashed_messages(with_categories=true) %}
+                      {% if messages  %}
+                        {% for category, message in messages %}
+                          <div class="alert text-center alert-{{ category }}">
+                            <b>{{ message }}</b>
+                          </div>
+                        {% endfor %}
+                      {% endif %}
+                    {% endwith %}
+
+                    <div class="row">
+                            <div class="col-md-12">
+                                    <div class="card card-plain">
+                                            <div class="row">
+                                              
+                                                <div class="pull-left" style="margin-bottom:20px">
+                                                        <div class="header">
+                                                                <h4 class="title">Liste des sondages</h4>
+                                                            </div>
+                                                </div>
+
+                                                <div class="pull-right" style="margin-bottom:20px">
+                                                        <div class="header">
+                                                                <a href=" {{ url_for('encours.ajouter_encours') }} " class="btn btn-danger btn-sm">
+                                                                        Ajouter un sondage
+                                                                </a>
+                                                        </div>
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="content table-responsive table-full-width">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                        <th>Nom du sondage </th>
+                                                        <th class="text-center">Actions</th>
+                                                    </tr></thead>
+                                                    <tbody>
+                                                        {% for encour in encours %}
+                                                            <tr>
+                                                                <td>{{ encour.titre }}</td>
+
+                                                                <td class="text-center">  
+                                                                    <div class="btn-group">
+                                                                        {% if encour.status == 1 %}
+                                                                        <a href="{{ url_for('encours.status_encours', sondage_id=encour.id) }} " class="btn btn-info btn-sm">
+                                                                            <span class="ti-unlock"></span>
+                                                                        </a>
+                                                                        {% else %}
+                                                                        <a href="{{ url_for('encours.status_encours', sondage_id=encour.id) }} " class="btn btn-danger btn-sm">
+                                                                                <span class="ti-lock"></span>
+                                                                         </a>
+                                                                        {% endif %}
+                                                                        <a href="{{ url_for('encours.sondage_edit', sondage_id=encour.id) }} " class="btn btn-warning btn-sm">
+                                                                                Editer
+                                                                        </a>
+                                                                      </div>
+                                                                    </div></td>
+                                                            </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                    
+                                        </div>
+        
+                            </div>
+                    </div> 
+               
+            </div>
+        </div>
+    <div class="col-lg-2 col-md-2"></div>
+</div>
+{% endblock body %}
+
+
+
+

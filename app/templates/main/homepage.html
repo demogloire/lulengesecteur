@@ -1,158 +1,181 @@
-{% extends "basetwo.html" %}
+{% extends "fronterend.html" %}
+
+{% block addcss %}
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+{% endblock %}
+
+{% block menu_header %}
+{% include 'elements/menu.html' %}
+
+{% endblock %}
+
+{% block slider %}
+{% include 'elements/slider.html' %}
+{% endblock %}
+
 {% block body %}
-
-<!-- Les domaines du secteur de Lulenge -->
-<section class="service-arrow" style="margin-top:10px"
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-4 bg-success">
-				<div class="block">
-					<i class="ion-ios-people"></i>
-					<h3>Social</h3>
-					<p class="text-justify" style="color:black">La promotion du Social fait parti des prioprité du secteur de Lulenge, le statut socio-culturel, l'économie qui sont les élements du bien-être sont indispensable, dans ce souci que le secteur à des multiples projet.</p>
-                
-                    <a href="" class="btn btn-sm btn-danger">Plus</a>
-                </div>
-			</div>
-			<div class="col-md-4 bg-danger">
-				<div class="block">
-					<i class="ion-heart-broken"></i>
-					<h3>Santé</h3>
-					<p class="text-justify" style="color:black"> Vivre dans une situation harmonieuse, est la promotion de la santé, ainsi à Lulenge la réhabilitation des infrastructure sanitaire et les nouvelles construction.</p>
-                    <a href="" class="btn btn-sm btn-info">Plus</a>
-                </div>
-			</div>
-			<div class="col-md-4 bg-primary">
-				<div class="block">
-					<i class="ion-lightbulb"></i>
-					<h3>Education</h3>
-					<p class="text-justify">L'éducation est la clé de toute développement humaine, le secteur interviens dans la construction, la réhabilitation et l'innovation des infrastructure éducationnelle pour l'élite de demain</p>
-                    <a href="" class="btn btn-sm btn-warning">Plus</a>
-                </div>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- fin des domaines -->
-
-<!-- Secteur de Lulenge -->
-<section class="about section">
+<div id="about" class="section">
+	<!-- container -->
 	<div class="container">
+		<!-- row -->
 		<div class="row">
-			<div class="col-md-7 col-sm-12">
-				<div class="block">
-					<div class="section-title">
-						<h2>Secteur de Lulenge</h2>
-						<p>Ensemble pour le progrès, Maendeleo Mbele, Pamoja Tunaweza</p>
-					</div>
+			<!-- about content -->
+			<div class="col-md-5">
+				<div class="section-title">
+					<h1>Secteur de Lulenge.</h1>
+				</div>
+				<div class="about-content">
 					<p class="text-justify">
-                            Peu après l’indépendance du Congo en 1960, le Secteur de LULENGE a été sujet à une longue période de crise sans précédent dans son histoire : la rébellion muleliste qui a commencé dans la Province de Bandundu s’est répandue dans tout le pays pour finalement créer son bastion dans le Secteur de LULENGE (HEWA BORA) et cela jusqu’en 1986 – 1997. Les conséquences néfastes étaient nombreuses. <br><br>
+						Peu après l’indépendance du Congo en 1960, le Secteur de LULENGE a été sujet à une longue
+						période de
+						crise sans précédent dans son histoire : la rébellion muleliste qui a commencé dans la Province
+						de
+						Bandundu s’est répandue dans tout le pays pour finalement créer son bastion dans le Secteur de
+						LULENGE
+						(HEWA BORA) et cela jusqu’en 1986 - 1997. Les conséquences néfastes étaient nombreuses.
+					</p>
+					<a href="#" class="primary-button">Savoir plus.</a>
+					<br><br>
+				</div>
+			</div>
+			<!-- /about content -->
 
-                            Pendant que la population se remettait peu à peu de ces événements malheureux, la guerre dite de « libération » survenue en octobre 1996, va encore aggraver la situation socio-économique qui était déjà alarmante. La victoire de Laurent Désiré KABILA sur le régime dictatorial du Maréchal Mobutu ne va être que d’une courte durée.
-                    </p>
-                    <a href="" class="btn btn-success">Lire la suite</a>
-				</div>
-			</div><!-- .col-md-7 close -->
-			<div class="col-md-5 col-sm-12">
-				<div class="block">
-					<img src="{{ url_for('static',filename='other/d.jpg')}}" class="img img-responsive" alt="Img">
-				</div>
-			</div><!-- .col-md-5 close -->
+			<!-- about video -->
+			<div class="col-md-offset-1 col-md-6">
+				<a href="#" class="about-video">
+					<img src=" {{url_for('static', filename='other/d.jpg')}}  " alt="">
+				</a>
+			</div>
+			<!-- /about video -->
 		</div>
-    </div>
-<!-- fin secteur de Lulenge -->
-</section>
-
-
-<!--Vide on youtube-->
-<section class="promo-video overlay section" style="background-image: url( {{ url_for('static',filename='other/lu.jpg') }} )">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="text-white mb-20 font-weight-normal">Suivez-nous <br> En Vidéo</h1>
-                <div class="d-flex">
-                    <a class="popup-youtube play-icon mr-4" href="https://www.youtube.com/watch?v=6ZfuNTqbHE8">
-                        <i class="ion-ios-play"></i>
-                    </a>
-                    <p class="text-white align-self-center h4">Secteur de  Lulenge.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--Fin video-->
-<div class="container" style="margin-top:30px">
-		<div class="row">
-			{% for post in posts %}
-			<div class="col-md-6 ">
-				  <div class="post">
-					<div class="post-thumb">
-					  <a href="blog-single.html">
-						<img class="img-responsive" src=" {{  url_for('static', filename='posts/thumb/'+post.thumb) }}" alt="">
-					  </a>
-					</div>
-					<h3 class="post-title"><a href="#">{{ post.titre }}</a></h3>
-					<div class="post-meta">
-					  <ul>
-						<li>
-						  <i class="ion-calendar"></i> {{ post.date_post.strftime('%d-%m-%Y') }}
-						</li>
-						<li>
-						  <i class="ion-android-people"></i> Poster Par {{ post.cont_user.prenom }}
-						</li>
-						<li>
-						  <a href="#"><i class="ion-pricetags"></i> Tags</a>,<a href="#"> {{ post.rub_cont.nom }}</a>
-						</li>
-						
-					  </ul>
-					</div>
-					<div class="post-content">
-					  <p class="text-justify">
-							{{ post.cont[:320]|markdown}} 
-						 </p>
-					  <a href="blog-single.html" class="btn btn-danger">Lire la suite</a>
-					</div>
-				  </div>
-			  </div>
-			{% endfor %}
-
-
-	  </div>
+		<!-- /row -->
+	</div>
+	<!-- /container -->
 </div>
 
-<!--Sondage-->
-<section class="call-to-action bg-1 section-sm overly">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="block">
-						<h2>Sondage d'option</h2>
-						<p>Merci de pouvoir participer aux sondages d'option sur notre secteur de Lulenge</p>
-						<a data-toggle="modal" data-target="#myModal" class="btn btn-warning btn-large" href="#">SONDAGE</a>
+<div id="cta" class="section">
+	<!-- background section -->
+	<div class="section-bg" style="background-color:darkslategray; background-position: -25px -114.292px;"
+		data-stellar-background-ratio="0.5"></div>
+	<!-- /background section -->
+
+	<!-- container -->
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+			<!-- cta content -->
+			<div class="col-md-offset-2 col-md-8">
+				<div class="cta-content text-center">
+					<h1>Bienvenu à Lulenge</h1>
+					<p class="lead">Découvre cette partie de la planète où l’environnement, le tourisme, l’humanitaire
+						et au cœur du développement.</p>
+					<a href="#" class="primary-button">Rejoignez - nous !</a>
+				</div>
+			</div>
+			<!-- /cta content -->
+		</div>
+		<!-- /row -->
+	</div>
+	<!-- /container -->
+</div>
+
+<div id="blog" class="section">
+	<!-- container -->
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+			<!-- section title -->
+			<div class="col-md-8 col-md-offset-2">
+				<div class="section-title text-center">
+					<h2 class="title">Dernières actualités</h2>
+					<p class="sub-title">Trouver toutes les informations sur le secteur de Lulenge en ce qui concerne
+						presque tout les domaines du secteur.</p>
+				</div>
+			</div>
+			<!-- /section title -->
+
+			{%for post in post%}
+			<div class="col-md-4">
+				<div class="article">
+					<div class="article-img">
+						<a href="single-blog.html">
+							<img src="{{url_for('static', filename='posts/thumb/'+post.thumb)}}" alt="">
+						</a>
+					</div>
+					<div class="article-content">
+						<h3 class="article-title"><a href="single-blog.html">{{ post.titre }}</a></h3>
+						<ul class="article-meta">
+							<li> <span class="label label-info">{{ post.rub_cont.nom }}</span> <span
+									class="label label-warning">{{ post.date_p.strftime('%d-%m-%Y') }}</span> </li>
+							<li>Par <span class="label label-info">{{ post.cont_user.prenom }}</span></li>
+							<li>
+								{%if post.comment==0 or post.comment==1 %}
+								{{post.comment}} Commentaire
+								{%else%}
+								{{post.comment}} Commentaires
+								{%endif%}
+
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
-			 <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-		<div class="modal-dialog">
-		
-		  <!-- Modal content-->
-		  <div class="modal-content">
-			<div class="modal-header">
-			  <button type="button" class="close" data-dismiss="modal">&times;</button>
-			  <h4 class="modal-title">Modal Header</h4>
-			</div>
-			<div class="modal-body">
-			  <p>Some text in the modal.</p>
-			</div>
-			<div class="modal-footer">
-			  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			</div>
-		  </div>
-		  </div>
-	  </div>
-	  </div>
-	</section>
-<!--Fin sondage -->
+			{%endfor%}
+		</div>
 
+		<div class="text-center">
+			<button class="primary-button">Plus d'articles</button>
+		</div>
+		<!-- /row -->
+	</div>
+	<!-- /container -->
+</div>
+
+{%if ver_encours=="NoVide"%}
+<div id="causes" class="section" style="background-color:honeydew; background-position: -25px -114.292px;"
+data-stellar-background-ratio="0.5">
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="section-title text-center">
+					<h2 class="title">Sondage</h2>
+					<p class="sub-title"><b>Participer sur notre sondage sur ({{sondage_nom}}) en faisant votre choix.</b></p>
+				</div>
+			</div>
+
+			{%for candidats in candidat%}
+			<div class="col-md-4">
+				<div class="causes box-shadow--3dp" style="padding: 10px; border-radius: 10px;">
+					<div class="causes-img">
+						<a href="">
+							<img  src="{{url_for('static', filename='posts/thumb/'+candidats.avatar )}}">
+							</a>
+					</div> <br>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="{{ ((candidats.compteur)/total_sondage) * 100  }}"
+						aria-valuemin="0" aria-valuemax="100" style="width: {{((candidats.compteur)/total_sondage) * 100|int }}%">
+						{{((candidats.compteur)/total_sondage) * 100}}%
+						</div>
+					  </div> 
+					<div class="causes-content text-center">
+						<h4><span class="label label-info">{{candidats.noms}}-{{candidats.partie}}</span></h4>
+						<form action=" {{url_for('sondage.vote', vote_id=candidats.id)}} " method="GET">
+							<button class="btn btn-danger btn-md">Voté <small><span class="label label-info">{{candidats.compteur}}</span></small> </button>
+						</form>
+						</div>
+				</div>
+			</div>
+			{%endfor%}
+		</div>
+		<div class="text-center">
+			<a href=" {{url_for('main.sondage_vue')}} " class="primary-button">Voir d'autres candidats</a>
+		</div>
+	</div>
+</div>
+{%endif%}
+
+{% endblock %}
+{% block footer %}
+{% include 'elements/footer.html' %}
 {% endblock %}

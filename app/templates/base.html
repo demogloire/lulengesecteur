@@ -35,6 +35,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="{{ url_for('static',filename='admin/css/themify-icons.css')}}" rel="stylesheet" />
+    
+    
+    {% block addcss %}{% endblock %}
 </head>
 <body>
 
@@ -67,9 +70,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url_for('users.vote') }}">
+                    <a href="{{ url_for('sondage.tous_sondage') }}">
                         <i class="ti-thumb-up"></i>
-                        <p>Vote</p>
+                        <p>Sondage</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('album.listalbum') }}">
+                        <i class="ti-image"></i>
+                        <p>Album</p>
                     </a>
                 </li>
                 <li>
@@ -104,7 +113,7 @@
 									<b class="caret"></b>
                               </a>
                               <ul class="dropdown-menu">
-                                <li><a href="  {{ url_for('users.profil',user_id=current_user.id)}}  ">Profil</a></li>
+                               
                                 <li><a href=" {{ url_for('users.logout')}} ">Déconnexion</a></li>
                               </ul>
                         </li>
@@ -139,7 +148,14 @@
     </div>
 </div>
 
-
+<script>
+    $('#summernote').summernote({
+       height: 300,                 // set editor height
+       minHeight: null,             // set minimum height of editor
+       maxHeight: null,             // set maximum height of editor
+       focus: true                  // set focus to editable area after initializing summernote
+   });
+</script>
 </body>
 
     <!--   Core JS Files   -->
@@ -160,5 +176,7 @@
 	<script src="assets/js/paper-dashboard.js"></script>
     <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
     <script src="{{ url_for('static',filename='admin/js/demo.js')}}" type="text/javascript"></script>
+
+    
 
 </html>
