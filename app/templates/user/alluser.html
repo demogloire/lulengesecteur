@@ -17,6 +17,13 @@
             <h4 class="title">Liste des administrateurs</h4>
             <p class="category">Tous les utilisateurs avec les permissions</p>
         </div>
+        <div class="pull-right">
+            <div class="header">
+                <a href=" {{ url_for('users.register') }} " class="btn btn-info btn-sm">
+                            Ajouter un utilisateur
+                </a>
+            </div>
+        </div>
         <div class="content table-responsive table-full-width">
             <table class="table table-hover">
                 <thead>
