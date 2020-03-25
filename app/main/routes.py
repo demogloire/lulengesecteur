@@ -89,7 +89,7 @@ def sondage_vue():
 
     #Rapport de encours
     encours_rapport=Encours.query.all()#Sondage en cours
-
+    total_sondage=0
     if encours is not None:
         ver_encours="NoVide"
         candidat=Sondage.query.filter_by(encours_id=encours.id).order_by(Sondage.compteur.desc()).paginate(page=page, per_page=50)
@@ -131,7 +131,7 @@ def sondage_rapport(sond_id):
     encours_rapport=Encours.query.all()#Sondage en cours
     session.pop('ver', None) # Suppression de la session
     session.pop('id_pu', None) # Supression de la session
-
+    total_sondage=0
     if encours is not None:
         ver_encours="NoVide"
         candidat=Sondage.query.filter_by(encours_id=encours.id).order_by(Sondage.compteur.desc())
