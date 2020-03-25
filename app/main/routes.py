@@ -43,8 +43,9 @@ def homepage():
             i=somme.id
             table_par_sondage.insert(0,i)
         total_sondage=len(table_par_sondage)
+        sondage_nom=encours.titre
     pourcentage=total_sondage/100
-    sondage_nom=encours.titre
+    
 
     return render_template('main/homepage.html',ver_post_active=ver_post_active, pourcentage=pourcentage, total_sondage=total_sondage, title="Secteur lulenge fizi", sondage_nom=sondage_nom, ver_encours=ver_encours,candidat=candidat,photos=photos, post=posts, ver_album=ver_album)
 
@@ -101,8 +102,9 @@ def sondage_vue():
             i=somme.id
             table_par_sondage.insert(0,i)
         total_sondage=len(table_par_sondage)
+        sondage_nom=encours.titre
     pourcentage=total_sondage/100
-    sondage_nom=encours.titre
+    
 
     #Vérification des articles populaire.
     posts_pop=Contenu.query.filter(Contenu.lus >=5).order_by(Contenu.lus.desc()).limit(10)
@@ -144,7 +146,7 @@ def sondage_rapport(sond_id):
             i=somme.id
             table_par_sondage.insert(0,i)
         total_sondage=len(table_par_sondage)
-    sondage_nom=encours.titre
+        sondage_nom=encours.titre
 
     #Vérification des articles populaire.
     posts_pop=Contenu.query.filter(Contenu.lus >=5).order_by(Contenu.lus.desc()).limit(10)
