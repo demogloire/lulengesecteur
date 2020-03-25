@@ -1,0 +1,226 @@
+{% extends "fronternd_temp.html" %}
+
+{% block addcss %}
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+{% endblock %}
+
+{% block head_menu %}
+{% include 'elements/header_two.html' %}
+{% endblock %}
+
+
+{% block body %}
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- MAIN -->
+            <main id="main" class="col-md-9">
+                <!-- article -->
+                <div class="article">
+                    <!-- article img -->
+                    <div class="article-img">
+                        <img src="{{url_for('static', filename='posts/thumb/'+posts.thumb)}}" alt="">
+                    </div>
+                    <!-- article img -->
+
+                    <!-- article content -->
+                    <div class="article-content">
+                        <!-- article title -->
+                        <h2> {{posts.titre}} </h2>
+                        <!-- /article title -->
+
+                        <!-- article meta -->
+                        <ul class="article-meta">
+                            <li>Par {{posts.cont_user.prenom}}</li>
+                            <li>{{posts.date_p.strftime('%d-%m-%Y')}}</li>
+                            <li>{%if posts.comment==0 or posts.comment==1  %}
+                                    {{posts.comment}} Commentaire
+                                {%else%}
+                                    {{posts.comment}} Commentaires
+                                {%endif%}
+                            </li>
+                            <li>{%if posts.lus==0 or posts.lus==1  %}
+                                    {{posts.lus}} Vue
+                                {%else%}
+                                    {{posts.lus}} Vues
+                                {%endif%}
+                            </li>
+                            <li>{%if posts.like==0 or posts.like==1  %}
+                                    {{posts.like}} Like
+                                {%else%}
+                                    {{posts.like}} Likes
+                                {%endif%}
+                            </li>
+                        </ul>
+                        <!-- /article meta -->
+                        <br><br>
+                        <p> {{posts.cont|safe}} </p>
+                    </div>
+                    <!-- /article content -->
+                    <br>
+                    <div>
+                        <a href=" {{url_for('main.likepage', contenu_id=posts.id, slug=posts.slug)}} " class="btn btn-primary btn-lg"> <i class="fa fa-thumbs-o-up"></i></a>
+                        {%if posts.cont_user==current_user %}
+                        <a href=" {{url_for('posts.editer_posts', post_id=posts.id)}} " class="btn btn-danger btn-lg"> <i class="fa fa-edit"></i>Modifier</a>
+                        {%endif%}
+                    </div>
+
+                  
+                    <!-- article reply form -->
+                    <div class="article-reply">
+                        <h3>Commentaire</h3>
+                        <p>Laisser votre commentaire</p>
+                        <form method="POST" action="{{url_for('main.commenteurun', contenu_id=posts.id, slug=posts.slug)}}">
+                        {{ form.csrf_token }}
+                       <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    {% if form.commentaireun.errors %}
+                                    {{ form.commentaireun(class="input")}}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.commentaireun.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                    {{ form.commentaireun(class="input")}}
+                                    {% endif %}
+                                </div>
+                                {{ form.submit(class="btn btn-success") }}
+                            </div>
+                        </div> 
+                        </form>
+                    </div>
+                    <!-- /article reply form -->
+
+                    <!-- article comments -->
+                    <div class="article-comments">
+                        <h3>{%if posts.comment==0 or posts.comment==1  %}
+                            {{posts.comment}} Commentaire
+                        {%else%}
+                            {{posts.comment}} Commentaires
+                        {%endif%}</h3>
+                        <!-- comment -->
+                        {%if visteur_control=='Novide'  %}   
+                        {%for commentaire in commentaire_visteur%}            
+                        <div class="media">
+                            <div class="media-left">
+                                <img class="media-object" height="70px" width="70px" src="{{ url_for('static', filename='profil/default.png') }} " alt="">
+                            </div>
+                            <div class="media-body">
+                                <div class="media-heading">
+                                    <h4> {{commentaire.visiteur_commentaire.pseudo}} </h4>
+                                    <span class="time">{{commentaire.date_com.strftime('%d-%m-%Y')}}</span>
+                                    <a href=" {{url_for('main.actualite_vue_r',commentaire_id=commentaire.id, s='p', contenu_id=posts.id, slug=posts.slug)}} " class="reply">Repondre</a>
+                                </div>
+                                <p> {{commentaire.contenu|safe}} </p>
+                            </div>
+
+                            <!-- comment -->
+                        {%if reponse=='Novide' %}
+                        {%for reponse in commentaire_reponse %}
+                        {%if reponse.commentaire_id==commentaire.id%}
+                            <div class="media">
+                                <div class="media-left">
+                                    <img class="media-object" height="70px" width="70px" src="{{ url_for('static', filename='profil/default.png') }}" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <div class="media-heading">
+                                        <h4> {{reponse.visiteur_comment.pseudo}} </h4>
+                                        <span class="time">{{reponse.date_com.strftime('%d-%m-%Y')}}</span>
+                                        <a href=" {{url_for('main.actualite_vue_r',commentaire_id=commentaire.id, s='p', contenu_id=posts.id, slug=posts.slug)}} " class="reply">Repondre</a>
+                                    </div>
+                                    <p> {{reponse.contenu|safe}} </p>
+                                </div>
+                            </div>
+                        {%endif%}
+                        {%endfor%}
+                        {%endif%}
+                            <!-- /comment -->
+                        </div>
+                        {%endfor%}
+                        {%endif%}
+                        <!-- /comment -->
+                    </div>
+                    <!-- /article comments -->
+
+                    
+                </div>
+                <!-- /article -->
+            </main>
+
+            <aside id="aside" class="col-md-3">
+                <br><br>
+                
+                {%if ver_rapport=='NoVide'%}
+                <div class="widget">
+                    <h4> Resultat des sondages</h4>
+                    <div class="widget-category">
+                        <ul>
+                            {%for rapport in encours_rapport%}
+
+                            <li><a
+                                    href=" {{url_for('main.sondage_rapport', sond_id=rapport.id)}} ">{{rapport.titre}}</a>
+                            </li>
+
+                            {%endfor%}
+                        </ul>
+                    </div>
+                </div>
+                {%endif%}
+
+                {%if posts_pop_ver=='NoVide'%}
+                <div class="widget">
+                    <h4>Les articles populaires</h4>
+                    <!-- single post -->
+                    {%for post in posts_pop%}
+                    <div class="widget-post">
+                        <a href="{{url_for('main.actualite_vue', contenu_id=post.id, slug=post.slug)}} ">
+                            <div class="widget-img">
+                                <img src="{{url_for('static', filename='posts/thumb/'+post.thumb)}}" alt="">
+                            </div>
+                            <div class="widget-content">
+                                {{post.titre}}
+                            </div>
+                        </a>
+                        <ul class="article-meta">
+                            <li>Par {{ post.cont_user.prenom }}</li>
+                            <li>{{ post.date_p.strftime('%d-%m-%Y') }}</li>
+                        </ul>
+                    </div>
+                    {%endfor%}
+                </div>
+                {%endif%}
+                {%if ver_rubrique=='NoVide'%}
+                <div class="widget">
+                    <h4> Resultat des sondages</h4>
+                    <div class="widget-category">
+                        <ul>
+                            {%for rubrique in rubrique_publication%}
+
+                            <li><a
+                                    href=" ">{{rubrique.nom}}</a>
+                            </li>
+
+                            {%endfor%}
+                        </ul>
+                    </div>
+                </div>
+                {%endif%}
+
+
+            </aside>
+            <!-- /ASIDE -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+{% endblock %}
+{% block footer %}
+
+{% include 'elements/footer.html' %}
+{% endblock %}
+

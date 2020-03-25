@@ -1,11 +1,16 @@
 {% extends "base.html" %}
+{% block addcss %}
+<script src=" {{ url_for('static', filename='summnernote/jquer.js')}} "></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='summnernote/summernote-lite.css')}} ">
+<script src="{{ url_for('static', filename='summnernote/summernote-lite.js')}}"></script>
+{% endblock %}
 {% block body %}
 <div class="row">
     <div class="col-lg-2 col-md-2"></div>
     <div class="col-lg-8 col-md-8">
         <div class="card">
             <div class="header">
-                <h4 class="title">Ajouter un article</h4>
+                <h4 class="title">Modifier l'article</h4>
             </div>
             <div class="content">
                 <form method="POST" enctype="multipart/form-data">
@@ -42,14 +47,14 @@
                             <div class="form-group">
                                 <label>Contenue</label>
                                 {% if form.conted.errors %}
-                                {{ form.conted(class="form-control is-invalid", rows="3")}}
+                                {{ form.conted(id="summernote")}}
                                 <div class="invalid-feedback">
                                     {% for error in form.conted.errors %}
                                         <span>{{ error }}</span>
                                     {% endfor %}
                                 </div>
                                 {% else %}
-                                {{ form.conted(class="form-control is-invalid", rows="3")}}
+                                {{ form.conted(id="summernote")}}
                                 {% endif %}
                             </div>
                         </div>
@@ -71,24 +76,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Description de l'image</label>
-                                {% if form.descrip_imageed.errors %}
-                                {{ form.descrip_imageed(class="form-control border-input is-invalid")}}
-                                <div class="invalid-feedback">
-                                    {% for error in form.descrip_image.ederrors %}
-                                        <span>{{ error }}</span>
-                                    {% endfor %}
-                                </div>
-                                {% else %}
-                                {{ form.descrip_imageed(class="form-control border-input")}}
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">

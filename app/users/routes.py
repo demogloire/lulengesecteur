@@ -1,10 +1,11 @@
 from flask import render_template, flash, url_for, redirect, request
 from . import users 
 from .. import db, bcrypt
-from ..models import User
+from ..models import User, Album, Contenu, Internaute, Encours, Visiteur
 from app.users.forms import EditerUserForm, RegisterForm, EditerPasswordForm
 from app.users.others_user import save_picture
 from flask_login import login_user, current_user, logout_user, login_required
+from datetime import datetime, date
 
 
 #Enregistrement des utilisateurs sur la plateforme
@@ -103,7 +104,7 @@ def editer_user():
     if form.validate_on_submit():
     #if request.method=='POST': 
         if form.picture_ed.data:
-            imagefile= save_picture(form.picture.data)
+            imagefile= save_picture(form.picture_ed.data)
             current_user.image_file=imagefile
         current_user.nom=form.nom_ed.data
         current_user.post_nom=form.post_nom_ed.data
@@ -122,9 +123,52 @@ def editer_user():
 @users.route('/dashboard')
 @login_required
 def dashboard():
-    pass
+    #Nombre variable
+    contenu_pub=Contenu.query.all()
+    like_nombre_contenu=[] #Tableau de like
+    cmt_nombre_contenu=[] #Tableau de commentaire
+    vue_nombre_contenu=[] #Tableau de vue
+    for somme in contenu_pub:
+        i=somme.lus
+        b=somme.like
+        c=somme.comment
+        like_nombre_contenu.insert(0,b)
+        cmt_nombre_contenu.insert(0,c)
+        vue_nombre_contenu.insert(0,i)
+    total_like=sum(like_nombre_contenu)
+    total_cmt=sum(cmt_nombre_contenu)
+    total_vue=sum(vue_nombre_contenu)
 
-    return render_template('authentification/dashboard.html', title="Dashboard")
+    #Visiteur par date
+    date_aujour=date.today()
+    les_visiteurs=Internaute.query.filter_by(date_vist=date_aujour).first()
+    visiteur=0
+    if les_visiteurs is not None:
+        visiteur=les_visiteurs.nombre_vis
+    #Transformation de la date
+    mois_encours=date.today()
+    date_format_avant=str(mois_encours).split("-")
+    date_graphique="{}-{}".format(date_format_avant[0],date_format_avant[1]) #La date formatée mensuellement
+    mois='%{}%'.format(date_graphique) 
+    #Triage des visites selons le mois
+    les_viisteur_mensuel=Internaute.query.filter(Internaute.date_vist.ilike(mois)).all()
+    label=[] #Tableau de label
+    series=[] #Tableau de serie
+    for somme in les_viisteur_mensuel:
+        i=somme.date_vist
+        b=somme.nombre_vis
+        label.insert(0,i)
+        series.insert(0,b)
+    
+    print(label,'label',series,'series')
+    
+    return render_template('authentification/dashboard.html',label=label, series=series, visiteur=visiteur, total_like=total_like, total_cmt=total_cmt, total_vue=total_vue, title="Dashboard")
+
+
+
+
+
+
 
 #Modification de l'utilisateur
 @users.route('/editerpass', methods=['GET','POST'])
@@ -155,6 +199,23 @@ def configuration():
     return render_template('user/configuration.html', title=title)
 
 
+
+#Enregistrement des utilisateurs sur la plateforme
+@users.route('/register_ed',  methods=['GET','POST'])
+def register_ed():
+
+    form=RegisterForm()
+
+    if form.validate_on_submit():
+        hashed_password= bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        utilisateur= User(nom=form.nom.data, status=True, post_nom=form.post_nom.data, prenom=form.prenom.data, username=form.username.data,password=hashed_password)
+        db.session.add(utilisateur)
+        db.session.commit()
+        flash('Un compte admin crée avec succès','success')
+        #return redirect(url_for('authenfication.'))
+        return redirect(url_for('authentification.login'))
+
+    return render_template('user/registered.html', title="Administrateur", form=form)
 
 
 

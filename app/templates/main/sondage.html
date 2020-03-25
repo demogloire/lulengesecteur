@@ -18,13 +18,14 @@
             <!-- MAIN -->
             <main id="main" class="col-md-9">
                 <div class="row">
+                    {%if sondage_nom !=None%}
                     <div class="col-md-8 col-md-offset-2">
                         <div class="section-title text-center">
                             <h2 class="title">Sondage</h2>
                             <p class="sub-title"><b>Participer au sondage sur <i>"{{sondage_nom}}"</i> en faisant votre choix.</b></p>
                         </div>
                     </div>
-
+                    
                     {%for candidats in candidat.items%}
                     <div class="col-md-4">
                         <div class="causes box-shadow--3dp" style="padding: 10px; border-radius: 10px;">
@@ -42,7 +43,7 @@
                                 </div>
                             </div>
                             <div class="causes-content text-center">
-                                <h4><span class="label label-info">{{candidats.noms}}-{{candidats.partie}}</span></h4>
+                                <h4> <small><span class="label label-info">{{candidats.noms}}-{{candidats.partie}}</span></small></h4>
                                 <form action=" {{url_for('sondage.vote', vote_id=candidats.id)}} " method="GET">
                                     <button class="btn btn-danger btn-md">Voté <small><span
                                                 class="label label-info">{{candidats.compteur}}</span></small> </button>
@@ -51,6 +52,13 @@
                         </div>
                     </div>
                     {%endfor%}
+                    {%else%}
+                    <div class="col-md-12 text-center">
+                        <div class="alert text-center alert-danger">
+                            <b>Aucun sondage n'est actif</b>
+                        </div>
+                    </div>
+                    {%endif%}
 
 
 
@@ -82,18 +90,40 @@
                 <br><br><br><br>
                 <!-- category widget -->
                 <div class="widget">
-                    <h3> Rapport des sondages</h3>
+                    <h4> Resultat des sondages</h4>
                     <div class="widget-category">
                         <ul>
                             {%for rapport in encours_rapport%}
 
-                            <li><a href=" {{url_for('main.sondage_rapport', sond_id=rapport.id)}} ">{{rapport.titre}} <i class="fa fa-download"></i></a></li>
+                            <li><a href=" {{url_for('main.sondage_rapport', sond_id=rapport.id)}} ">{{rapport.titre}}</a></li>
 
                             {%endfor%}
                         </ul>
                     </div>
                 </div>
                 <!-- /category widget -->
+                {%if posts_pop_ver=='NoVide'%}
+                <div class="widget">
+                    <h4>Les articles populaires</h4>
+                    <!-- single post -->
+                    {%for post in posts_pop%}
+                    <div class="widget-post">
+                        <a href="{{url_for('main.actualite_vue', contenu_id=post.id, slug=post.slug)}} ">
+                            <div class="widget-img">
+                                <img src="{{url_for('static', filename='posts/thumb/'+post.thumb)}}" alt="">
+                            </div>
+                            <div class="widget-content">
+                                {{post.titre}}
+                            </div>
+                        </a>
+                        <ul class="article-meta">
+                            <li>Par {{ post.cont_user.prenom }}</li>
+                            <li>{{ post.date_p.strftime('%d-%m-%Y') }}</li>
+                        </ul>
+                    </div>
+                    {%endfor%}
+                </div>
+                {%endif%}
             </aside>
             <!-- /ASIDE -->
         </div>

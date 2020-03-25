@@ -1,0 +1,126 @@
+{% extends "fronternd_temp.html" %}
+
+{% block addcss %}
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='galerie/css/lightgallery.min.css')}}" />
+<!-- <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='galerie/css/demo.css')}}" /> -->
+{% endblock %}
+
+{% block head_menu %}
+{% include 'elements/header_two.html' %}
+{% endblock %}
+
+
+{% block body %}
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- MAIN -->
+            <main id="main" class="col-md-9">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="section-title text-center">
+                            <h2 class="title">Galerie</h2>
+                            <p class="sub-title"><b></b></p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            {%if ver_album_autre=='NoVide'%}
+                            {%for album in album_autre%}
+                            <a href="{{url_for('main.galerie_id', galerie_id=album.id)}} ">
+                                <div class="col-md-3">
+                                    <div class="number">
+                                        <span> {{album.noms}} </span>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            {%endfor%}
+                            {%endif%}
+
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <ul class="footer-galery list-unstyled" id="lightgallery">
+                            {%if ver_album=='Novide'%}
+                            {%for photo in photos_a%}
+                            <li data-responsive="{{url_for('static', filename='posts/thumb/'+photo.photo)}}"
+                                data-src="{{url_for('static', filename='posts/thumb/'+photo.photo)}}" data-sub-html="<h4>Secteur de Lulenge Fizi</h4>
+                            <p> {{photo.photos_album.noms}} </p>">
+                                <a><img src="{{url_for('static', filename='posts/thumb/'+photo.photo)}}"></a>
+                            </li>
+                            {%endfor%}
+                            {%endif%}
+                        </ul>
+                    </div>
+
+                </div>
+            </main>
+
+            <aside id="aside" class="col-md-3">
+                <br><br><br><br>
+                <!-- category widget -->
+                <div class="widget">
+                    <h4> Resultat des sondages</h4>
+                    <div class="widget-category">
+                        <ul>
+                            {%for rapport in encours_rapport%}
+
+                            <li><a
+                                    href=" {{url_for('main.sondage_rapport', sond_id=rapport.id)}} ">{{rapport.titre}}</a>
+                            </li>
+
+                            {%endfor%}
+                        </ul>
+                    </div>
+                </div>
+
+                {%if posts_pop_ver=='NoVide'%}
+                <div class="widget">
+                    <h4>Les articles populaires</h4>
+                    <!-- single post -->
+                    {%for post in posts_pop%}
+                    <div class="widget-post">
+                        <a href="{{url_for('main.actualite_vue', contenu_id=post.id, slug=post.slug)}} ">
+                            <div class="widget-img">
+                                <img src="{{url_for('static', filename='posts/thumb/'+post.thumb)}}" alt="">
+                            </div>
+                            <div class="widget-content">
+                                {{post.titre}}
+                            </div>
+                        </a>
+                        <ul class="article-meta">
+                            <li>Par {{ post.cont_user.prenom }}</li>
+                            <li>{{ post.date_p.strftime('%d-%m-%Y') }}</li>
+                        </ul>
+                    </div>
+                    {%endfor%}
+                </div>
+                {%endif%}
+                <!-- /category widget -->
+            </aside>
+            <!-- /ASIDE -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+{% endblock %}
+{% block footer %}
+
+{% include 'elements/footer.html' %}
+{% endblock %}
+
+{% block addjs %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#lightgallery').lightGallery();
+    });
+</script>
+<script src="{{url_for('static', filename='galerie/js/picture-full.js')}}"></script>
+<script src="{{url_for('static', filename='galerie/js/lightgallery-all.min.js')}}"></script>
+<script src="{{url_for('static', filename='galerie/js/jquery.mousewheel.min.js')}}"></script>
+{% endblock %}

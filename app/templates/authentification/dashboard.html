@@ -2,117 +2,213 @@
 {% block body %}
 
 {% with messages= get_flashed_messages(with_categories=true) %}
-						  {% if messages  %}
-							{% for category, message in messages %}
-							  <div class="alert text-center alert-{{ category }}">
-								<b>{{ message }}</b>
-							  </div>
-							{% endfor %}
-						  {% endif %}
-						{% endwith %}
+{% if messages  %}
+{% for category, message in messages %}
+<div class="alert text-center alert-{{ category }}">
+	<b>{{ message }}</b>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
 
 
-						<div class="row">
-							<div class="col-lg-3 col-sm-6">
-									<div class="card">
-											<div class="content">
-													<div class="row">
-															<div class="col-xs-5">
-																	<div class="icon-big icon-warning text-center">
-																			<i class="ti-server"></i>
-																	</div>
-															</div>
-															<div class="col-xs-7">
-																	<div class="numbers">
-																			<p>Capacity</p>
-																			105GB
-																	</div>
-															</div>
-													</div>
-													<div class="footer">
-															<hr>
-															<div class="stats">
-																	<i class="ti-reload"></i> Updated now
-															</div>
-													</div>
-											</div>
-									</div>
-							</div>
-							<div class="col-lg-3 col-sm-6">
-									<div class="card">
-											<div class="content">
-													<div class="row">
-															<div class="col-xs-5">
-																	<div class="icon-big icon-success text-center">
-																			<i class="ti-wallet"></i>
-																	</div>
-															</div>
-															<div class="col-xs-7">
-																	<div class="numbers">
-																			<p>Revenue</p>
-																			$1,345
-																	</div>
-															</div>
-													</div>
-													<div class="footer">
-															<hr>
-															<div class="stats">
-																	<i class="ti-calendar"></i> Last day
-															</div>
-													</div>
-											</div>
-									</div>
-							</div>
-							<div class="col-lg-3 col-sm-6">
-									<div class="card">
-											<div class="content">
-													<div class="row">
-															<div class="col-xs-5">
-																	<div class="icon-big icon-danger text-center">
-																			<i class="ti-pulse"></i>
-																	</div>
-															</div>
-															<div class="col-xs-7">
-																	<div class="numbers">
-																			<p>Errors</p>
-																			23
-																	</div>
-															</div>
-													</div>
-													<div class="footer">
-															<hr>
-															<div class="stats">
-																	<i class="ti-timer"></i> In the last hour
-															</div>
-													</div>
-											</div>
-									</div>
-							</div>
-							<div class="col-lg-3 col-sm-6">
-									<div class="card">
-											<div class="content">
-													<div class="row">
-															<div class="col-xs-5">
-																	<div class="icon-big icon-info text-center">
-																			<i class="ti-twitter-alt"></i>
-																	</div>
-															</div>
-															<div class="col-xs-7">
-																	<div class="numbers">
-																			<p>Followers</p>
-																			+45
-																	</div>
-															</div>
-													</div>
-													<div class="footer">
-															<hr>
-															<div class="stats">
-																	<i class="ti-reload"></i> Updated now
-															</div>
-													</div>
-											</div>
-									</div>
-							</div>
+<div class="row">
+	<div class="col-lg-3 col-sm-6">
+		<div class="card">
+			<div class="content">
+				<div class="row">
+					<div class="col-xs-5">
+						<div class="icon-big icon-danger text-center">
+							<i class="ti-user"></i>
+						</div>
 					</div>
+					<div class="col-xs-7">
+						<div class="numbers">
+							<p>Visiteurs</p>
+							{{visiteur}}
+						</div>
+					</div>
+				</div>
+				<div class="footer">
+					<hr>
+					<div class="stats">
+						<i class="ti-user"></i> Pour les visiteurs du site aujourd'hui
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-3 col-sm-6">
+		<div class="card">
+			<div class="content">
+				<div class="row">
+					<div class="col-xs-5">
+						<div class="icon-big icon-warning text-center">
+							<i class="ti-thumb-up"></i>
+						</div>
+					</div>
+					<div class="col-xs-7">
+						<div class="numbers">
+							<p>Likes</p>
+							{{total_like}}
+						</div>
+					</div>
+				</div>
+				<div class="footer">
+					<hr>
+					<div class="stats">
+						<i class="ti-user"></i> Pour les articles
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-3 col-sm-6">
+		<div class="card">
+			<div class="content">
+				<div class="row">
+					<div class="col-xs-5">
+						<div class="icon-big icon-success text-center">
+							<i class="ti-comment"></i>
+						</div>
+					</div>
+					<div class="col-xs-7">
+						<div class="numbers">
+							<p>Commentaires</p>
+							{{total_cmt}}
+						</div>
+					</div>
+				</div>
+				<div class="footer">
+					<hr>
+					<div class="stats">
+						<i class="ti-user"></i> Pour les articles
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-3 col-sm-6">
+		<div class="card">
+			<div class="content">
+				<div class="row">
+					<div class="col-xs-5">
+						<div class="icon-big icon-danger text-center">
+							<i class="ti-eye"></i>
+						</div>
+					</div>
+					<div class="col-xs-7">
+						<div class="numbers">
+							<p>Vues</p>
+							{{total_vue}}
+						</div>
+					</div>
+				</div>
+				<div class="footer">
+					<hr>
+					<div class="stats">
+						<i class="ti-user"></i> Pour les articles
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div class="row">
+
+	<div class="col-md-12">
+		<div class="card">
+			<div class="header">
+				<h4 class="title">Les visiteurs</h4>
+				<p class="category">Les visiteurs pour le mois encours</p>
+			</div>
+			<div class="content">
+				<div class="height-400">
+					<canvas id="column-chart"></canvas>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block addjs %}
+<script type="text/javascript" src="{{ url_for('static', filename='charts/chart.min.js')}}"></script>
+<script>
+    $(window).on("load", function(){
+
+//Get the context of the Chart canvas element we want to select
+var ctx = $("#column-chart");
+
+// Chart Options
+var chartOptions = {
+    // Elements options apply to all of the options unless overridden in a dataset
+    // In this case, we are setting the border of each bar to be 2px wide and green
+    elements: {
+        rectangle: {
+            borderWidth: 2,
+            borderColor: 'rgb(0, 255, 0)',
+            borderSkipped: 'bottom'
+        }
+    },
+    responsive: true,
+    maintainAspectRatio: false,
+    responsiveAnimationDuration:500,
+    legend: {
+        position: 'top',
+    },
+    scales: {
+        xAxes: [{
+            display: true,
+            gridLines: {
+                color: "#f3f3f3",
+                drawTicks: false,
+            },
+            scaleLabel: {
+                display: true,
+            }
+        }],
+        yAxes: [{
+            display: true,
+            gridLines: {
+                color: "#f3f3f3",
+                drawTicks: false,
+            },
+            scaleLabel: {
+                display: true,
+            }
+        }]
+    },
+};
+
+// Chart Data
+var chartData = {
+    labels: [{% for item in label %}"{{item}}",{% endfor %}],
+    datasets: [{
+        label: "Les visteurs",
+        data: [{% for item in series %}{{item}},{% endfor %}],
+
+        backgroundColor: "#28D094",
+        hoverBackgroundColor: "rgba(40,208,148,.9)",
+        borderColor: "transparent"
+    },]
+};
+
+var config = {
+    type: 'bar',
+
+    // Chart Options
+    options : chartOptions,
+
+    data : chartData
+};
+
+// Create the chart
+var lineChart = new Chart(ctx, config);
+});
+</script>
 
 {% endblock %}

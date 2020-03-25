@@ -32,9 +32,9 @@
 						de
 						Bandundu s’est répandue dans tout le pays pour finalement créer son bastion dans le Secteur de
 						LULENGE
-						(HEWA BORA) et cela jusqu’en 1986 - 1997. Les conséquences néfastes étaient nombreuses.
+						(HEWA BORA) et cela jusqu’en 1986 - 1997. Les conséquences néfastes étaient nombreuses...
 					</p>
-					<a href="#" class="primary-button">Savoir plus.</a>
+					<a href="{{url_for('main.apropos_de_nous')}}  " class="primary-button">Savoir plus.</a>
 					<br><br>
 				</div>
 			</div>
@@ -69,7 +69,7 @@
 					<h1>Bienvenu à Lulenge</h1>
 					<p class="lead">Découvre cette partie de la planète où l’environnement, le tourisme, l’humanitaire
 						et au cœur du développement.</p>
-					<a href="#" class="primary-button">Rejoignez - nous !</a>
+					<a href=" {{url_for('main.contact')}} " class="primary-button">Rejoignez - nous !</a>
 				</div>
 			</div>
 			<!-- /cta content -->
@@ -79,6 +79,7 @@
 	<!-- /container -->
 </div>
 
+{%if ver_post_active=='NoVide'%}
 <div id="blog" class="section">
 	<!-- container -->
 	<div class="container">
@@ -98,24 +99,18 @@
 			<div class="col-md-4">
 				<div class="article">
 					<div class="article-img">
-						<a href="single-blog.html">
+						<a href=" {{url_for('main.actualite_vue', contenu_id=post.id, slug=post.slug)}} ">
 							<img src="{{url_for('static', filename='posts/thumb/'+post.thumb)}}" alt="">
 						</a>
 					</div>
 					<div class="article-content">
-						<h3 class="article-title"><a href="single-blog.html">{{ post.titre }}</a></h3>
+						<h3 class="article-title"><a href=" {{url_for('main.actualite_vue', contenu_id=post.id, slug=post.slug)}} ">{{ post.titre }}</a></h3>
 						<ul class="article-meta">
-							<li> <span class="label label-info">{{ post.rub_cont.nom }}</span> <span
-									class="label label-warning">{{ post.date_p.strftime('%d-%m-%Y') }}</span> </li>
 							<li>Par <span class="label label-info">{{ post.cont_user.prenom }}</span></li>
 							<li>
-								{%if post.comment==0 or post.comment==1 %}
-								{{post.comment}} Commentaire
-								{%else%}
-								{{post.comment}} Commentaires
-								{%endif%}
-
+								<span class="label label-warning">{{ post.date_p.strftime('%d-%m-%Y') }}</span>
 							</li>
+							
 						</ul>
 					</div>
 				</div>
@@ -124,12 +119,13 @@
 		</div>
 
 		<div class="text-center">
-			<button class="primary-button">Plus d'articles</button>
+			<a href="{{url_for('main.actualite')}}" class="primary-button">Plus d'articles</a>
 		</div>
 		<!-- /row -->
 	</div>
 	<!-- /container -->
 </div>
+{%endif%}
 
 {%if ver_encours=="NoVide"%}
 <div id="causes" class="section" style="background-color:honeydew; background-position: -25px -114.292px;"

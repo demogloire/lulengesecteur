@@ -1,10 +1,132 @@
-<table>
-    {%for encours in candidat%}
-    <tr>
-        <td> {{loop.index}} </td>
-        <td>{{ encours.noms}}</td>
-        <td>{{ encours.partie}}</td>
-        <td>{{ encours.compteur}}</td>
-    </tr>
-    {%endfor%}
-</table>
+{% extends "fronternd_temp.html" %}
+
+{% block addcss %}
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+<script src="{{url_for('static', filename='html2pdf.bundle.min.js')}}"></script>
+<script>
+    function generatePDF() {
+
+      const element = document.getElementById("sondage");
+      html2pdf()
+        .set({ html2canvas: { scale: 4 } })
+        .from(element)
+        .save();
+    }
+  </script>
+{% endblock %}
+
+{% block head_menu %}
+{% include 'elements/header_two.html' %}
+{% endblock %}
+
+
+{% block body %}
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- MAIN -->
+            <main id="main" class="col-md-9">
+                <div class="row" id="sondage">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="section-title text-center">
+                            <h2 class="title">Sondage</h2>
+                            <p class="sub-title"> <blockquote>Titre du sondage : {{sondage_nom}}</blockquote></p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <p class="text-justify" style="font-size: large;"> Le résultat du sondage portant sur: <b>"{{sondage_nom}}"</b>, dont nous avons eu un nombre total 
+                            de {{total_sondage}} participants qui représente le 100% de notre sondage. Le résultat trouvé au cours de notre 
+                            sondage, ne reflète pas une vérité en soi sur le sondage en question mais 
+                            il donne juste l’idée.</p> <br>
+
+                        
+                        <div class="table-resposive">
+                            <table class="table">
+                                <tr>
+                                    <td class="text-center">Place</td>
+                                    <td>Photo</td>
+                                    <td>Noms</td>
+                                    <td class="text-center">Partie Politique</td>
+                                    <td class="text-center">Votants</td>
+                                    <td class="text-center">Poucentage</td>
+                                </tr>
+                                {%for candidats in candidat%}
+                                <tr>
+                                    <td class="text-center"> {{loop.index}} </td>
+                                    <td><img src="{{url_for('static', filename='posts/thumb/'+candidats.avatar )}}"
+                                            class="img img-responsive img-circle" height="40px" width="40px" alt="">
+                                    <td>{{ candidats.noms}}</td>
+                                    <td class="text-center">{{ candidats.partie}}</td>
+                                    <td class="text-center">{{ candidats.compteur}}</td>
+                                    <td class="text-center">{{((candidats.compteur)/total_sondage) * 100}}%</td>
+                                </tr>
+                                {%endfor%}
+                    
+                    
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-success" onclick="generatePDF()"><i class="fa fa-file-pdf-o"></i> Télécharger </button>
+                    </div>
+                </div>
+            </main>
+            <!-- /MAIN -->
+
+            <!-- ASIDE -->
+            <aside id="aside" class="col-md-3">
+                <br><br><br><br>
+                <!-- category widget -->
+                <div class="widget">
+                    <h4> Resultat des sondages</h4>
+                    <div class="widget-category">
+                        <ul>
+                            {%for rapport in encours_rapport%}
+
+                            <li><a href=" {{url_for('main.sondage_rapport', sond_id=rapport.id)}} ">{{rapport.titre}}</a></li>
+
+                            {%endfor%}
+                        </ul>
+                    </div>
+                </div>
+
+                {%if posts_pop_ver=='NoVide'%}
+                <div class="widget">
+                    <h4>Les articles populaires</h4>
+                    <!-- single post -->
+                    {%for post in posts_pop%}
+                    <div class="widget-post">
+                        <a href="{{url_for('main.actualite_vue', contenu_id=post.id, slug=post.slug)}} ">
+                            <div class="widget-img">
+                                <img src="{{url_for('static', filename='posts/thumb/'+post.thumb)}}" alt="">
+                            </div>
+                            <div class="widget-content">
+                                {{post.titre}}
+                            </div>
+                        </a>
+                        <ul class="article-meta">
+                            <li>Par {{ post.cont_user.prenom }}</li>
+                            <li>{{ post.date_p.strftime('%d-%m-%Y') }}</li>
+                        </ul>
+                    </div>
+                    {%endfor%}
+                </div>
+                {%endif%}
+                <!-- /category widget -->
+            </aside>
+            <!-- /ASIDE -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+{% endblock %}
+{% block footer %}
+{% include 'elements/footer.html' %}
+{% endblock %}

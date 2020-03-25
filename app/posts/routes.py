@@ -81,30 +81,23 @@ def editer_posts(post_id):
     form=EditerArticleForm()
 
     post=Contenu.query.filter_by(id=post_id).first_or_404()
-    file=File.query.filter_by(cont_file=post).first_or_404()
     if post is None:
         return redirect(url_for('posts.tous_articles'))
     else:
         if form.validate_on_submit():
-            titre_slugify = Slugify(to_lower=True)
             if form.pictureed.data:
-                image=save_picture(form.pictureed.data)
                 thumb=save_picture_thumb(form.pictureed.data)
                 post.thumb=thumb
-                file.nom_file=image
             post.titre=form.titreed.data.capitalize()
-            post.slug=titre_slugify(form.titreed.data)
             post.cont=form.conted.data
-            post.descrip_image=form.descrip_imageed.data
             post.cont_file=form.rubriqueed.data
             db.session.commit()
             flash("L'article vient d'etre modifié",'success')
-            return redirect(url_for('posts.apercu', post_id=post.id ))
+            return redirect(url_for('main.actualite_vue', contenu_id=post.id, slug=post.slug))
         elif request.method =='GET':
             form.titreed.data=post.titre
             form.conted.data=post.cont
-            form.descrip_imageed.data=post.descrip_image
-            form.rubriqueed.data=post.rub_cont.nom
+            form.rubriqueed.data=post.rub_cont
             
     return render_template('posts/editer_posts.html', form=form)
 

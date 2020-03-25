@@ -209,7 +209,6 @@ textarea.input {
 
 .section-title .title {
   font-size: 43px;
-  text-transform: capitalize;
   margin-bottom: 30px;
 }
 
@@ -525,7 +524,6 @@ textarea.input {
 
 .header-content h1 {
   color: #FFF;
-  text-transform: capitalize;
   margin-bottom: 30px;
 }
 
@@ -802,9 +800,6 @@ textarea.input {
   margin-top: 15px;
 }
 
-.causes .causes-content h3 {
-  text-transform: capitalize;
-}
 
 .causes .causes-content h3>a {
   font-weight: 700;
@@ -955,9 +950,7 @@ textarea.input {
   margin-top: 30px;
 }
 
-.article .article-content .article-title {
-  text-transform: capitalize;
-}
+
 
 .article .article-content .article-title>a {
   font-weight: 700;
@@ -1050,7 +1043,7 @@ textarea.input {
 
 .article-comments .media .media-body .media-heading h4 {
   display: inline-block;
-  text-transform: capitalize;
+
 }
 
 .article-comments .media .media-body .media-heading .time {
@@ -1145,7 +1138,7 @@ textarea.input {
 
 .widget .widget-title {
   margin-bottom: 30px;
-  text-transform: capitalize;
+
 }
 
 /*----------------------------*\
@@ -1174,7 +1167,7 @@ textarea.input {
   font-family: 'Source Sans Pro', sans-serif;
   margin-bottom: 10px;
   font-weight: 700;
-  text-transform: capitalize;
+
   letter-spacing: 0px;
 }
 
@@ -1232,7 +1225,7 @@ textarea.input {
   font-family: 'Source Sans Pro', sans-serif;
   margin-bottom: 10px;
   font-weight: 700;
-  text-transform: capitalize;
+
 }
 
 .widget-causes>a .widget-img {
@@ -1291,7 +1284,7 @@ textarea.input {
 
 .footer .footer-title {
   margin-bottom: 30px;
-  text-transform: capitalize;
+
 }
 
 /*----------------------------*\

@@ -1,0 +1,33 @@
+{% extends "fronternd_temp.html" %}
+
+{% block addcss %}
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+{% endblock %}
+
+{% block head_menu %}
+{% include 'elements/header_two.html' %}
+{% endblock %}
+
+{% block body %}
+<!--================Blog Area =================-->
+<section class="blog_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div style="text-align: center; margin-top: 200px;" >
+                    <h1> Erreur 500 </h1>
+                    <h3> Le serveur a rencontré une erreur interne. C'est tout ce que nous savons. </h3>
+                    <br><br>
+                    <hr class="intro-divider">
+                    <a href="{{ url_for('main.homepage') }}" class="btn btn-default btn-lg">
+                        <i class="fa fa-home"></i>
+                        Accueil
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================Blog Area =================-->
+
+{% endblock body %}

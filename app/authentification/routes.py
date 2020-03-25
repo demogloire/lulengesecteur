@@ -13,6 +13,12 @@ def login():
     if current_user.is_authenticated:
         return redirect(url_for('users.dashboard'))
     
+       ## Vérification de l'existence d'au moins un administrateur
+    ver_admini_existe= User.query.filter_by(status=True).first()
+    if ver_admini_existe is None:
+      return redirect(url_for('users.register_ed'))
+
+    
     form=LoginForm() 
 
     if form.validate_on_submit():

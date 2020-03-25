@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="{{ url_for('static',filename='other/d.jpg') }} ">
+	<link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static',filename='other/d.jpg') }} ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Lulenge">
+    <meta name="author" content="Lulenge ">
+    <meta name="keyword" content="Secteur, Lulenge, Fizi">
+
+    {% if title %}
+        <title>  {{ title }} </title>
+    {% else %}
+        <title>  Dashboard </title>
+    {% endif %}
+
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Bootstrap core CSS     -->
+    <link href="{{ url_for('static',filename='admin/css/bootstrap.min.css')}}" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="{{ url_for('static',filename='admin/css/animate.min.css')}}" rel="stylesheet" />
+
+    <!--  Paper Dashboard core CSS    -->
+    <link href="{{ url_for('static',filename='admin/css/paper-dashboard.css')}}" rel="stylesheet" />
+  
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="{{ url_for('static',filename='admin/css/demo.css')}}" rel="stylesheet" />
+
+    <!--  Fonts and icons     -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="{{ url_for('static',filename='admin/css/themify-icons.css')}}" rel="stylesheet" />
+    
+    
+    {% block addcss %}{% endblock %}
+</head>
+<body>
+
+<div class="wrapper">
+    <!-- <div class="sidebar" data-background-color="black" data-active-color="danger"> -->
+
+    <!--
+		Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
+		Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
+	-->
+<!-- 
+    	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="#" class="simple-text">
+                    Secteur de Lulenge
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li class="active">
+                    <a href=" {{ url_for('users.dashboard')}} ">
+                        <i class="ti-panel"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li>
+                    <a href=" {{ url_for('posts.tous_articles') }} ">
+                        <i class="ti-bookmark-alt"></i>
+                        <p>Articles publiés</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('sondage.tous_sondage') }}">
+                        <i class="ti-thumb-up"></i>
+                        <p>Sondage</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('album.listalbum') }}">
+                        <i class="ti-image"></i>
+                        <p>Album</p>
+                    </a>
+                </li>
+                <li>
+                    <a href=" {{ url_for('users.configuration') }} ">
+                        <i class="ti-settings"></i>
+                        <p>Configuration</p>
+                    </a>
+                </li>
+            </ul>
+    	</div>
+    </div> -->
+
+    <div class="main-panel">
+        <!-- <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar bar1"></span>
+                        <span class="icon-bar bar2"></span>
+                        <span class="icon-bar bar3"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Dashboard</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+ 
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="ti-user"></i>
+									<p>Utilisateur</p>
+									<b class="caret"></b>
+                              </a>
+                              <ul class="dropdown-menu">
+                              </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav> -->
+
+
+        <div class="content">
+            <div class="container-fluid">
+                {% block body %}
+                {% endblock %}
+            </div>
+        </div>
+<!-- 
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="pull-left">
+                    <ul>
+
+                    </ul>
+                </nav>
+                <div class="copyright pull-right">
+                    &copy; <script>document.write(new Date().getFullYear())</script>, Par MCG</a>
+                </div>
+            </div>
+        </footer> -->
+
+    </div>
+</div>
+
+<script>
+    $('#summernote').summernote({
+       height: 300,                 // set editor height
+       minHeight: null,             // set minimum height of editor
+       maxHeight: null,             // set maximum height of editor
+       focus: true                  // set focus to editable area after initializing summernote
+   });
+</script>
+</body>
+
+    <!--   Core JS Files   -->
+    
+
+    <script src="{{ url_for('static',filename='admin/js/jquery.min.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static',filename='admin/js/bootstrap.min.js')}}" type="text/javascript"></script>
+    <!--  Checkbox, Radio & Switch Plugins -->
+    <script src="{{ url_for('static',filename='admin/js/bootstrap-checkbox-radio.js')}}" type="text/javascript"></script>
+    <!--  Charts Plugin -->
+    <script src="{{ url_for('static',filename='admin/js/chartist.min.js')}}" type="text/javascript"></script>
+    <!--  Notifications Plugin    -->
+    <script src="{{ url_for('static',filename='admin/js/bootstrap-notify.js')}}" type="text/javascript"></script>
+    <!--  Google Maps Plugin    -->
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+    <script src="{{ url_for('static',filename='admin/js/paper-dashboard.js')}}" type="text/javascript"></script>
+	<script src="assets/js/paper-dashboard.js"></script>
+    <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+
+
+    {% block addjs %}{% endblock %}
+
+</html>

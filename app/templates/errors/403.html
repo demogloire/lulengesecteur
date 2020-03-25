@@ -1,0 +1,32 @@
+{% extends "fronternd_temp.html" %}
+
+{% block addcss %}
+<link type="text/css" rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+{% endblock %}
+
+{% block head_menu %}
+{% include 'elements/header_two.html' %}
+{% endblock %}
+
+{% block body %}
+<!--================Blog Area =================-->
+<section class="blog_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div style="text-align: center; margin-top: 200px;" >
+                    <h1> Erreur 403 </h1>
+                    <h3> Vous ne disposez pas des autorisations suffisantes pour accéder à cette page. </h3>
+                    <br><br>
+                    <a href="{{ url_for('main.homepage') }}" class="btn btn-default btn-lg">
+                        <i class="fa fa-home"></i>
+                        Accueil
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================Blog Area =================-->
+
+{% endblock body %}

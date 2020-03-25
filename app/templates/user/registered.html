@@ -1,0 +1,138 @@
+{% extends "base_ed.html" %}
+{% block body %}
+
+<div class="row">
+    <div class="col-lg-2 col-md-2"></div>
+    <div class="col-lg-8 col-md-8">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Créer un compte administrateur</h4>
+            </div>
+            <div class="content">
+                <form method="POST" >
+                        {{ form.csrf_token }}
+                        {% with messages= get_flashed_messages(with_categories=true) %}
+						  {% if messages  %}
+							{% for category, message in messages %}
+							  <div class="alert text-center alert-{{ category }}">
+								<b>{{ message }}</b>
+							  </div>
+							{% endfor %}
+						  {% endif %}
+						{% endwith %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Prénom</label>
+                                {% if form.prenom.errors %}
+                                {{ form.prenom(class="form-control border-input is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.prenom.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.prenom(class="form-control border-input",  placeholder="King")}}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Nom</label>
+                                {% if form.nom.errors %}
+                                {{ form.nom(class="form-control border-input is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.nom.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.nom(class="form-control border-input",  placeholder="Wilodja")}}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Post-nom</label>
+                                {% if form.post_nom.errors %}
+                                {{ form.post_nom(class="form-control border-input is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.post_nom.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.post_nom(class="form-control border-input",  placeholder="Zihidalfe")}}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>E-mail</label>
+                                {% if form.username.errors %}
+                                {{ form.username(class="form-control border-input is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.username.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.username(class="form-control border-input",  placeholder="do@do.com")}}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Mot de passe</label>
+                                {% if form.password.errors %}
+                                {{ form.password(class="form-control border-input is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.password.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.password(class="form-control border-input")}}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Confirmer mot de passe</label>
+                                    {% if form.confirm_password.errors %}
+                                    {{ form.confirm_password(class="form-control border-input is-invalid")}}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.confirm_password.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                    {{ form.confirm_password(class="form-control border-input")}}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    <div class="text-center">
+                            {{ form.submit(class="btn btn-info btn-fill btn-wd") }}
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-2"></div>
+</div>
+{% endblock %}
+

@@ -28,7 +28,7 @@
                 <button class="search-btn"><i class="fa fa-search"></i></button>
                 <div class="search-form">
                     <form>
-                        <input class="input" type="text" name="search" placeholder="Search">
+                        <input class="input" type="text" name="search" placeholder="chercher">
                     </form>
                 </div>
             </div>
@@ -39,9 +39,9 @@
                 <li><a href=" {{url_for('main.homepage')}} ">Accueil</a></li> 
                 <li><a href="{{url_for('main.apropos_de_nous')}}">Apropos de nous</a></li>
                 <li><a href="{{url_for('main.sondage_vue')}}">Sondage</a></li>
-                <li><a href="#">Galerie </a></li>
-                <li><a href="#">Actualités</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="{{url_for('main.galerie')}}">Galerie </a></li>
+                <li><a href="{{url_for('main.actualite')}}">Actualités</a></li>
+                <li><a href="{{url_for('main.contact')}}">Contact</a></li>
             </ul>
             <!-- Nav menu -->
         </div>
@@ -51,7 +51,7 @@
     <!-- Page Header -->
     <div id="page-header">
         <!-- section background -->
-        <div class="section-bg" style="background-image: url(./static/frontend/img/background-2.jpg);"></div>
+        <div class="section-bg" style="background-image: url(../static/frontend/img/background-2.jpg);"></div>
         <!-- /section background -->
 
         <!-- page header content -->

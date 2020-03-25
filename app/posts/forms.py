@@ -28,7 +28,6 @@ class AjouterArticleForm(FlaskForm):
 class EditerArticleForm(FlaskForm):
     titreed= StringField('Titre', validators=[DataRequired("Completer le titre")])
     conted= TextAreaField('Contenue', validators=[DataRequired("Completer le contenue")])
-    descrip_imageed= StringField('Prénom', validators=[DataRequired("Completer la description de l'image")])
     pictureed = FileField('Mise à jour photo profil', validators=[FileAllowed(['jpg','png'],'Seul jpg et png sont autorisés')])
     rubriqueed = QuerySelectField(query_factory=rubrique_list, get_label='nom', allow_blank=False)
     submited = SubmitField('Enregister')

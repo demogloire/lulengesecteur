@@ -3,14 +3,25 @@
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="Secteur de Lulenge Fizi">
+    <meta name="keywords" content="Secteur , Lulenge, Fizi,  Secteur de Lulenge Fizi, Fizi Lulenge, Actualité Fizi, Galerie Fizi, Sondage Fizi, Apropos de Lulenge Fizi">
+    <meta name="author" content="Secteur de Lulenge Fizi">
 
-    <title>Secteur de Lulenge Fizi</title>
+
+    {% if title %}
+        <title>  {{ title }} </title>
+    {% else %}
+        <title>  Secteur de Lulenge Fizi </title>
+    {% endif %}
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400%7CSource+Sans+Pro:700" rel="stylesheet">
+
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ url_for('static',filename='other/d.jpg') }} ">
+	<link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static',filename='other/d.jpg') }} ">
 
     <!-- Bootstrap -->
     <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='frontend/css/bootstrap.min.css')}}" />
@@ -50,7 +61,9 @@
 	<script src="{{url_for('static', filename='frontend/js/bootstrap.min.js')}}"></script>
 	<script src="{{url_for('static', filename='frontend/js/owl.carousel.min.js')}}"></script>
 	<script src="{{url_for('static', filename='frontend/js/jquery.stellar.min.js')}}"></script>
-	<script src="{{url_for('static', filename='frontend/js/main.js')}}"></script>
+    <script src="{{url_for('static', filename='frontend/js/main.js')}}"></script>
+    {% block addjs %}{% endblock %}
+    
 </body>
 
 </html>

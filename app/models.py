@@ -27,11 +27,13 @@ class Contenu(db.Model):
     descrip_image = db.Column(db.String(255))
     thumb = db.Column(db.String(255))
     slug = db.Column(db.String(255))
+    lus=db.Column(db.Integer, default=0)
     like=db.Column(db.Integer, default=0)
     comment=db.Column(db.Integer, default=0)
     rubrique_id = db.Column(db.Integer, db.ForeignKey('rubrique.id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     commentaires = db.relationship('Commentaire', backref='com_cont', lazy='dynamic')
+    likes = db.relationship('Like', backref='like_cont', lazy='dynamic')
     
     def __repr__(self):
         return f"Contenu('{self.titre}','{self.cont}')"
@@ -85,6 +87,7 @@ class Visiteur(db.Model):
     comments = db.relationship('Comment', backref='visiteur_comment', lazy='dynamic')
     commentaires = db.relationship('Commentaire', backref='visiteur_commentaire', lazy='dynamic')
     choice = db.relationship('Choice', backref='visiteur_choice', lazy='dynamic')
+    likes = db.relationship('Like', backref='visiteur_like', lazy='dynamic')
 
 
     def __repr__(self):
@@ -136,5 +139,16 @@ class Photo(db.Model):
     def __repr__(self):
         return f"Photo('{self.album_id}')"
 
+class Like(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    contenu_id = db.Column(db.Integer, db.ForeignKey('contenu.id'), nullable=False)
+    visiteur_id = db.Column(db.Integer, db.ForeignKey('visiteur.id'), nullable=False)
+    
+class Internaute(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nombre_vis = db.Column(db.Integer, default=0)
+    date_vist=db.Column(db.Date)
+    def __repr__(self):
+        return ' {} '.format(self.nombre_v_par)
 
 

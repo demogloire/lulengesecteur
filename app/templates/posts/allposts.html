@@ -63,7 +63,7 @@
                                      </a>
                                     {% endif %}
 
-                                    <a href="{{ url_for('posts.apercu', post_id=post.id ) }}" class="btn btn-primary btn-sm">
+                                    <a href="{{ url_for('main.actualite_vue', contenu_id=post.id, slug=post.slug) }}" class="btn btn-primary btn-sm">
                                             <span class="ti-file"></span>
                                      </a>
 
