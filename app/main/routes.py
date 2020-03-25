@@ -32,6 +32,7 @@ def homepage():
     encours=Encours.query.filter_by(status=True).order_by(Encours.id.desc()).first() #Sondage en cours
     ver_encours="Vide"
     candidat=None
+    total_sondage=0
     if encours is not None:
         ver_encours="NoVide"
         candidat=Sondage.query.filter_by(encours_id=encours.id).limit(4)
